@@ -26,4 +26,9 @@ class Page extends BaseController
     {
         return view ('Page/about-us');
     }
+
+    public function project()
+    {
+        return view ('Page/project');
+    }
 }
