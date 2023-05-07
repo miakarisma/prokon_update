@@ -22,7 +22,7 @@
             <ul class="nav-list">
                 
                 <li class="nav-item"><a href="page/store.html"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
-                <li class="nav-item"><a href="page/project.html"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
+                <li class="nav-item"><a href="/project"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
                 <li class="nav-item"><a href="page/services.html"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
                 <li class="nav-item nav-item-image">
                 <a href="index.html">
