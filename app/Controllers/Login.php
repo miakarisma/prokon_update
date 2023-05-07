@@ -16,7 +16,7 @@ class Login extends BaseController
 
     public function isLogged_in()
     {
-        if (!session('username')) {
+        if (!session('id_user')) {
             return redirect()->to(base_url('/login'));
             // echo "success";
         }
@@ -33,8 +33,10 @@ class Login extends BaseController
         $dataUser = $this->userModel->getEmail($email_user);
 
         if ($dataUser) {
-            if ($password == $dataUser['password']) {
+            // dd($password);
+            if (password_verify($password, $dataUser['password'])) {
                 session()->set([
+                    'id_user' => $dataUser['id_user'],
                     'username' => $dataUser['nama_user'],
                     'email' => $dataUser['email_user'],
                     'logged_in' => TRUE
@@ -42,22 +44,29 @@ class Login extends BaseController
                 return redirect()->to(base_url('/page'));
             }
             else {
+                dd($password);
                 session()->setFlashdata('error', 'Username & Password Salah');
                 return redirect()->back();
             }
         }
         else {
+            
             session()->setFlashdata('error', 'Username & Password Salah');
             return redirect()->back();
         }
+    }
+
+    public function create()
+    {
+        return view('Page/sign-up');
     }
 
     public function save()
     {
         $rules = [
             // 'id_user' => 'required',  
-            'email_user' => 'required|min_length[3]|max_length[45]', 
-            'nama_user' => 'required|min_length[3]|max_length[45]',
+            'email' => 'required|min_length[3]|max_length[45]', 
+            'fullname' => 'required|min_length[3]|max_length[45]',
             'password' => 'required|min_length[8]|max_length[20]' 
             // 'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
@@ -74,14 +83,15 @@ class Login extends BaseController
             $this->userModel->save([
                 'email_user' => $this->request->getVar('email'),
                 'nama_user' => $this->request->getVar('fullname'),
-                'password' => $this->request->getVar('password'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'role' => 2,
                 // 'gambar' => $imageName,
             ]);
 
             return redirect()->to(base_url('/login'));
         }else{
             // echo "aaa";
-            return view('signup/create');
+            return view('Page/sign-up');
         }
 
     }

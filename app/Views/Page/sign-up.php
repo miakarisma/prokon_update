@@ -104,7 +104,7 @@
           <!-- Start Check Member -->
           <div class="check">
             <p class="already-member">Already member?</p>
-            <a href="login.html">
+            <a href="/login">
               <p class="log-in">Log in</p>
             </a>              
           </div>
