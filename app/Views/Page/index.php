@@ -238,6 +238,11 @@
     <section class="product" id="product">
 
         <h1 class="heading" id="heading">our <span> products</span></h1>
+        <?php 
+            if (session('id_user')) {
+                echo session('id_user');
+            }
+        ?>
 
         <div class="box-container">
 

@@ -117,14 +117,3 @@
       </div>
 </body>
 </html>
-
-<?php foreach ($produk as $data) : ?>
-    <fieldset>
-        <h3><li><?= $data['nama_produk'];?> | <?= $data['harga'];?></li></h3>
-        <p><img src="/img/<?= $data['gambar']?>" alt="gambar produk" width="300px"></p>
-        <?= $data['deskripsi'];?>
-        <br/>
-        <p><a href="produk/delete/<?= $data['id']?>">delete</a></p>
-        <a href="/produk/edit/<?= $data['id']?>">edit</a>
-    </fieldset>
-    <?php endforeach;?>

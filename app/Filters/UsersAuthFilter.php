@@ -15,7 +15,7 @@ class UsersAuthFilter implements FilterInterface
         //     return redirect()->to(site_url('Page/index'));
         // }
 
-        if (!session('username')) {
+        if (!session('id_user')) {
             return redirect()->to(base_url('/login'));
         }
     }

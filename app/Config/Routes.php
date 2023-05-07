@@ -36,6 +36,8 @@ $routes->get('/produk', 'Produk::index');
 
 $routes->get('/page', 'Page::index');
 $routes->get('/login', 'Login::index');
+$routes->get('/login/create', 'Login::create');
+$routes->post('/login/save', 'Login::save');
 $routes->get('/login/isLogged_in', 'Login::isLogged_in');
 
 $routes->get('/produk/create', 'Produk::create');
