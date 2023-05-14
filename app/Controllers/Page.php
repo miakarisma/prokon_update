@@ -1,19 +1,23 @@
 <?php namespace App\Controllers;
-use App\Models\ProdukModel;
+use App\Models\ProductModel;
+use App\Models\ProjectModel;
 
 class Page extends BaseController
 {
-    protected $produkModel;
+    protected $productModel;
+    protected $projectModel;
 
     public function __construct()
     {
-        $this->produkModel = new ProdukModel();
+        $this->productModel = new ProductModel();
+        $this->projectModel = new ProjectModel();
     }
     public function index()
     {
-        $produkModel = new ProdukModel();
-        $data['produk'] = $produkModel->getAllProduk();
-
+        $productModel = new ProductModel();
+        $data['product'] = $productModel->getAllProduct();
+        $projectModel = new ProjectModel();
+        $data['project'] = $projectModel->getAllProject();
         echo view('Page/index', $data);
     }
 
@@ -31,4 +35,10 @@ class Page extends BaseController
     {
         return view ('Page/project');
     }
+
+    public function service()
+    {
+        return view ('Page/service');
+    }
+
 }

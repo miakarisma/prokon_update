@@ -34,9 +34,7 @@
             </div>
 
           <!-- Start form -->
-            <?= \config\Services::validation()->listErrors(); ?>
-            <form method="POST" action="/login/save">
-              <?= csrf_field() ?>
+            <form method="POST" action="index.html">
               <!-- Start textfield fullname -->
               <div class="texfield-fullname">
                 <input class="rectangle-28" type="text" id="fullname" name="fullname" placeholder="Please enter your name">
@@ -92,7 +90,7 @@
             </div>
 
             <!-- Start Button Signup -->
-            <a href="/login">
+            <a href="index.html">
               <button class="signup-bar" type="submit">
                 <p style="color: white;">Sign Up</p>
               </button>
@@ -104,7 +102,7 @@
           <!-- Start Check Member -->
           <div class="check">
             <p class="already-member">Already member?</p>
-            <a href="/login">
+            <a href="login.html">
               <p class="log-in">Log in</p>
             </a>              
           </div>

@@ -10,42 +10,46 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="../css/work.css">
+    <link rel="stylesheet" href="/css/work.css">
 </head>
 <body>
     
     <!-- header -->
 
-    <section class="header">
-        
+    <section class="header"> 
         <nav class="navbar">
             <ul class="nav-list">
                 <li class="nav-item nav-item-image">
-                    <a href="../index.html">
-                      <img
-                      alt="logo-madju"
-                      class="logo-madju"
-                      src="https://static.overlay-tech.com/assets/5e0c9ada-d7d1-4696-bd9a-34a8a1129f7e.png"
-                      />
-                      <!-- <div class="half-circle"> -->
+                        <a href="/page">
                         <img
                         alt="logo-madju"
-                        class="half-circle"
-                        src="https://static.overlay-tech.com/assets/6518e249-ef29-408e-85e4-4aa517864d9d.svg"
+                        class="logo-madju"
+                        src="https://static.overlay-tech.com/assets/5e0c9ada-d7d1-4696-bd9a-34a8a1129f7e.png"
                         />
-                      <!-- </div> -->
-                    </a>
+                        <!-- <div class="half-circle"> -->
+                            <img
+                            alt="logo-madju"
+                            class="half-circle"
+                            src="https://static.overlay-tech.com/assets/6518e249-ef29-408e-85e4-4aa517864d9d.svg"
+                            />
+                        <!-- </div> -->
+                        </a>
+                        </li>
+                    <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i>Category</a></li>
+                    <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i>Sale</a></li>
+                    <li class="nav-item">
+                        <form class="form-search" id="my-form">
+                            <input class="input-search" type="text" placeholder="Search...">
+                            <button class="btn-search" type="submit">Search</button>
+                        </form>
                     </li>
-                <li class="nav-item"><a href="../page/store.html"><i class="fas fa-th"></i>Category</a></li>
-                <li class="nav-item"><a href="../page/project.html"><i class="fas fa-percent"></i>Sale</a></li>
-                <li class="nav-item">
-                    <form class="form-search" id="my-form">
-                        <input class="input-search" type="text" placeholder="Search...">
-                        <button class="btn-search" type="submit">Search</button>
-                    </form>
-                </li>
-                <li class="nav-item"><a href="../page/contact-us.html"><i class="fas fa-shopping-cart"></i>Shopping Cart</a></li>
-                <li class="nav-item"><a href="../page/login.html"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                    <li class="nav-item"><a href="/userContact"><i class="fas fa-shopping-cart"></i>Shopping Cart</a></li>
+                    <?php if (!session('id')) { ?>
+                        <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                    <?php } 
+                        else { ?>
+                            <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                    <?php } ?>
               </ul>
         </nav>
 
