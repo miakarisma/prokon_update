@@ -30,6 +30,6 @@ class Ecommerce extends BaseController
         $productModel = new ProductModel();
         $data['product'] = $productModel->getAllProduct();
 
-        echo view('page/store', $data);
+        echo view('ecommerce/index', $data);
     }
 }

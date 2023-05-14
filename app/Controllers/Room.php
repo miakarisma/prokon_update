@@ -27,7 +27,8 @@ class Room extends BaseController
     {
         $rules = [
             'name' => 'required|max_length[45]',  
-            'text_span' => 'required|max_length[45]', 
+            'text_span' => 'required', 
+            'description' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -43,6 +44,7 @@ class Room extends BaseController
             $this->roomModel->save([
                 'name' => $this->request->getVar('name'),
                 'text_span' => $this->request->getVar('text_span'),
+                'description' => $this->request->getVar('description'),
                 'image' => $imageName,
             ]);
 
@@ -72,7 +74,8 @@ class Room extends BaseController
     public function update($id){
         $rules = [
             'name' => 'required|max_length[45]',  
-            'text_span' => 'required|max_length[45]', 
+            'text_span' => 'required', 
+            'description' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -93,6 +96,7 @@ class Room extends BaseController
                 'id' => $id,
                 'name' => $this->request->getVar('name'),
                 'text_span' => $this->request->getVar('text_span'),
+                'description' => $this->request->getVar('description'),
                 'image' => $imageName,
             ]);
             return redirect()->to(base_url('/ecommerce'));

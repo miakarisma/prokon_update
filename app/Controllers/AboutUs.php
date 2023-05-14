@@ -21,16 +21,6 @@ class AboutUs extends BaseController
         echo view('aboutUs/index', $data);
     }
 
-    public function usrIndex()
-    {
-        $aboutUsModel = new AboutUsModel();
-        $data['aboutUs'] = $aboutUsModel->getAllAboutUs();
-        $ourTeamModel = new OurTeamModel();
-        $data['ourTeam'] = $ourTeamModel->getAllOurTeam();
-
-        echo view('page/about-us', $data);
-    }
-
     public function create()
     {
         return view('aboutUs/create');

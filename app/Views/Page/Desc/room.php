@@ -10,7 +10,8 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="/css/about-style.css">
+    <link rel="stylesheet" href="/css/roomstyle.css">
+
 </head>
 <body>
     
@@ -21,7 +22,7 @@
         <nav class="navbar">
             <ul class="nav-list">
                 
-                <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" /> Store</a></li>
+            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" /> Store</a></li>
                 <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" /> Projects</a></li>
                 <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" /> Services</a></li>
                 <li class="nav-item nav-item-image">
@@ -48,7 +49,6 @@
                     else { ?>
                         <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
                 <?php } ?>
-                
               </ul>
         </nav>
 
@@ -61,75 +61,28 @@
     </section>
     <!-- header -->
 
-    <!-- about us -->
+<!-- project -->
 
-    <section class="about" id="about">
-        <h1 class="heading"> discover <span>our</span> story</h1>
+<section class="project" id="project">
 
-        <div class="row">
+    <h1 class="heading"> our <span> room</span></h1>
 
-            <!-- <div class="image"> -->
-                <div class="group-3">
-                    <img
-                      alt=""
-                      class="door"
-                      src="https://static.overlay-tech.com/assets/5581f17e-7f31-447a-975b-d0ab9d0884c9.svg"
-                    /><img
-                      alt=""
-                      class="rectangle-3"
-                      src="https://static.overlay-tech.com/assets/0fc40cb1-ceb5-416f-8876-55741a97292b.png"
-                    />
-                  </div>
-                <!-- <img src="images/about.jpg" alt=""> -->
-            <!-- </div> -->
-
-            <div class="content">
-                <span>welcome to our shop</span>
-                <h3>we make your home more astonishing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque quas distinctio culpa quam voluptatem omnis libero saepe nisi dolores veniam sequi odit, unde dolorem eos reiciendis repellendus pariatur ducimus corporis?</p>
-                <a href="page/about-us.html" class="btn">read more</a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- about us -->
-
-    <!-- team -->
-
-    <section class="team" id="team">
-
-        <h1 class="heading"> our <span>team</span></h1>
-
-        <div class="swiper team-slider">
-
-            <div class="swiper-wrapper">
-                <?php foreach ($ourTeam as $data) : ?>
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="/img/<?= $data['image']?>" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3><?= $data['name']?></h3>
-                        <span><?= $data['position']?></span> 
-                    </div>
+    <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="/img/<?= $room['image']; ?>" alt="">
                 </div>
-                <?php endforeach;?>
+                <div class="content">
+                    <h3><?= $room['name']; ?></h3>
+                    <p><?= $room['text_span']; ?></p>
+                    <p><?= $room['description']; ?></p>
+                </div>
             </div>
+    </div>
 
-        </div>
+</section>
 
-    </section>
-
-    <!-- team -->
+<!-- project -->
 
     <!-- footer -->
     <footer class="footer" id="contact">
@@ -235,7 +188,6 @@
             <div class="line-right"></div>
         </div>
         <!-- Copyright -->
-
     </footer>
     <!-- footer -->
 

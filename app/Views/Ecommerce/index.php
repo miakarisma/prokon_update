@@ -22,43 +22,6 @@
 
   <section class="table-data">
   <!-- table -->
-    <h2>Gambar Utama</h2>
-    <table class="gambar-utama">
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>Gambar</th>
-            <th>Text Header</th>
-            <th>Text Span</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php 
-    $i = 0;
-    foreach ($frontPage as $data) : 
-        $i++;
-    ?>
-        <tr>
-            <td><?=$i?></td>
-            <td><img src="/img/<?= $data['image']?>" alt="Gambar 1"></td>
-            <td><?= $data['text_header'];?></td>
-            <td><?= $data['text_span'];?></td>
-            <td>
-        <p><a href="frontPage/edit/<?= $data['id']?>"><button class="edit-btn">Edit</button></a></p>
-        <a href="/frontPage/delete/<?= $data['id']?>"><button class="delete-btn">Delete</button></a>
-            
-            
-            </td>
-        </tr>
-    <?php endforeach;?>
-        
-        <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-    <!-- button add -->
-    <a href="/frontPage/create"><button class="btn-add">Add</button></a>
-    <!-- button add -->
 
     <h2>Kategori (Selalu 3)</h2>
 
@@ -98,6 +61,7 @@
             <th>Gambar</th>
             <th>Diskon</th>
             <th>Judul</th>
+            <th>description</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -108,6 +72,7 @@
             <td><img src="/img/<?= $data['image']?>" alt="Gambar 1"></td>
             <td><?= $data['text_span'];?></td>
             <td><?= $data['name'];?></td>
+            <td><?= $data['description'];?></td>
             <td>
             
         <a href="/room/edit/<?= $data['id']?>"><button class="edit-btn">Edit</button></a>
@@ -136,7 +101,6 @@
         </tr>
         </thead>
         <tbody>
-        <p><a href="">Add New Product</a></p>
     <?php foreach ($product as $data) : ?>
         <tr>
             <td>1</td>

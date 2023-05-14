@@ -21,9 +21,9 @@
         <nav class="navbar">
             <ul class="nav-list">
                 
-            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
-                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
-                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
+            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" /> Store</a></li>
+                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" /> Projects</a></li>
+                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" /> Services</a></li>
                 <li class="nav-item nav-item-image">
                 <a href="/page">
                   <img
@@ -40,13 +40,13 @@
                   <!-- </div> -->
                 </a>
                 </li>
-                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
-                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
+                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" /> About Us</a></li>
+                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" /> Contact Us</a></li>
                 <?php if (!session('id')) { ?>
-                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
                 <?php } 
                     else { ?>
-                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
                 <?php } ?>
               </ul>
         </nav>
@@ -75,6 +75,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Total</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -84,9 +85,14 @@
             foreach ($cart as $index => $data) : 
                 $total_price = $total_price + ($data['product_price'] * $data['quantity']);
             ?>
+            <form action="<?= base_url('contact/orderProduct/') ?>" method="POST">
+                <?= csrf_field() ?>
+                <input type="hidden" name="product_name" value="<?= $data['product_name']?>">
+                <input type="hidden" name="product_price" value="<?= $data['product_price']?>">
+                <input type="hidden" name="quantity" value="<?= $data['quantity']?>">
                 <tr>
                     <td><?= $index + 1 ?></td>
-                    <td><img src="/img/<?= $data['image'] ?>"/></td>
+                    <td><img class="picture" src="/img/<?= $data['image'] ?>"/></td>
                     <td><?= $data['product_name'] ?></td>
                     <td><?= $data['product_price'] ?></td>
                     <td>
@@ -96,12 +102,15 @@
                             <input type="button" value="+" class="quantity-btn" onclick="location.href='<?= base_url('cart/plusButton/'.$data['id'].'') ?>'">
                         </div>
                     </td>
+                    <td><?= $data['product_price'] * $data['quantity'] ?></td>
                     <td>
                         <!-- <div class="action"> -->
+                            <input class="action" type="submit" value="Order" class="action-btn"><br/>
                             <input class="action" type="button" value="Remove" class="action-btn" onclick="location.href='<?= base_url('cart/removeButton/'.$data['id'].'') ?>'">
                         <!-- </div> -->
                     </td>
                 </tr>
+            </form>
             <?php endforeach;?>
             <tr>
                 <td colspan="3"></td>
@@ -120,7 +129,7 @@
     <footer class="footer" id="contact">
         <div class="box-container">
             <div class="box">
-                <h3>Location</h3>
+                
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56400419367!2d107.56075552119081!3d-6.90344237941637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1682763058950!5m2!1sen!2sid" 
                     width="250" 
@@ -132,7 +141,7 @@
 
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -141,7 +150,7 @@
                     src="https://static.overlay-tech.com/assets/613deaec-0474-4962-8ac8-a4fed9ef3b96.svg"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['phone'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -151,7 +160,7 @@
                         src="https://static.overlay-tech.com/assets/d57061ae-6d98-438c-84e4-584eb9d3441d.svg"
                         />
                     </i>
-                    Bandung City
+                    <?= $contactUs[0]['location'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -161,11 +170,11 @@
                         src="https://static.overlay-tech.com/assets/b8d97384-b755-4356-9316-63e30f472b15.svg"
                         />
                     </i>
-                    madju-studio.com
+                    <?= $contactUs[0]['website'];?>
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -174,7 +183,7 @@
                     src="https://img.icons8.com/color/48/null/whatsapp--v1.png"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['whatsapp'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -184,7 +193,7 @@
                         src="https://img.icons8.com/fluency/48/null/instagram-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['instagram'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -198,7 +207,7 @@
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -207,7 +216,7 @@
                         src="https://img.icons8.com/color/48/null/gmail-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['facebook'];?>
                 </a>
 
             </div>
@@ -221,13 +230,6 @@
         </div>
         <!-- Copyright -->
 
-        <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-            <a href="#" class="fab fa-pinterest"></a>
-        </div>
     </footer>
     <!-- footer -->
 

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/login_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/login_style.css">
     <title>Login</title>
 </head>
 <body>
     <div class="sign-in">
         <div class="background">
-          <a href="../index.html">
+          <a href="/">
             <img
             alt=""
             class="rectangle-27"
@@ -61,8 +61,8 @@
             <!-- End TextField Password -->
             
             <!-- Start Check Keep Login -->
-            <!-- <div class="check">
-              <div class="keep-me">
+            <div class="check">
+              <!-- <div class="keep-me">
                 <div class="material-symbolscheck-box">
                   <label>
                     <input type="checkbox" name="agree" value="yes">
@@ -72,14 +72,14 @@
                   class="please-enter-your-login-details-to-sign">
                   Keep me logged in
                 </p>
-              </div>
-              <!-- Start forgot password -->
-              <!-- <a href="index.html">
+              </div> -->
+              Start forgot password -->
+              <a href="/forgot">
                 <p class="forgot-password">Forgot password?</p>
-              </a> -->
+              </a>
               <!-- End forgot password -->
-            <!-- </div>
-          </div> --> -->
+            </div>
+          </div> -->
           <!-- End Check Keep Login -->
 
           <!-- Button Login -->

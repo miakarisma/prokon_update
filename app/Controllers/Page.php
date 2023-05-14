@@ -43,7 +43,9 @@ class Page extends BaseController
 
     public function service()
     {
-        return view ('Page/service');
+        $contactUsModel = new ContactUsModel();
+        $data['contactUs'] = $contactUsModel->getAllContactUs();
+        return view ('Page/service', $data);
     }
 
 }

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/sign_upStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/sign_upStyle.css">
     <title>Sign Up</title>
 </head>
 <body>
     <div class="sign-up-two">
         <div class="background">
-          <a href="../index.html">
+          <a href="/">
             <img
             alt=""
             class="rectangle-27"
@@ -34,7 +34,7 @@
             </div>
 
           <!-- Start form -->
-            <form method="POST" action="index.html">
+            <form method="POST" action="/login/save">
               <!-- Start textfield fullname -->
               <div class="texfield-fullname">
                 <input class="rectangle-28" type="text" id="fullname" name="fullname" placeholder="Please enter your name">
@@ -74,14 +74,14 @@
                   class="i-agree-to-the-terms-of-service-and-priv-emphasis-0">
                     I agree to the                  
                   </strong>
-                  <a href="index.html">
+                  <a href="/">
                     Terms of Service
                   </a>
                   <strong 
                   class="i-agree-to-the-terms-of-service-and-priv-emphasis-0">
                     and 
                   </strong>
-                  <a href="index.html">
+                  <a href="/">
                     Privacy Policy
                   </a>
                 </p>
@@ -90,7 +90,7 @@
             </div>
 
             <!-- Start Button Signup -->
-            <a href="index.html">
+            <a href="#">
               <button class="signup-bar" type="submit">
                 <p style="color: white;">Sign Up</p>
               </button>
@@ -102,7 +102,7 @@
           <!-- Start Check Member -->
           <div class="check">
             <p class="already-member">Already member?</p>
-            <a href="login.html">
+            <a href="/login">
               <p class="log-in">Log in</p>
             </a>              
           </div>

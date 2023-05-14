@@ -69,7 +69,8 @@ class Filters extends BaseConfig
     public array $filters = [
         'isLoggedIn' => ['before' => 
             [
-                '/about', 
+                '/cart', 
+                '/cart/*',
             ]
         ]
     ];

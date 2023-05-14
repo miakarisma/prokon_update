@@ -36,20 +36,20 @@
                       <!-- </div> -->
                     </a>
                     </li>
-                <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i>Category</a></li>
-                <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i>Sale</a></li>
+                <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i> Category</a></li>
+                <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i> Sale</a></li>
                 <li class="nav-item">
                     <form class="form-search" id="my-form">
                         <input class="input-search" type="text" placeholder="Search...">
                         <button class="btn-search" type="submit">Search</button>
                     </form>
                 </li>
-                <li class="nav-item"><a href="/userContact"><i class="fas fa-shopping-cart"></i>Shopping Cart</a></li>
+                <li class="nav-item"><a href="/cart"><i class="fas fa-shopping-cart"></i> Shopping Cart</a></li>
                 <?php if (!session('id')) { ?>
-                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
                 <?php } 
                     else { ?>
-                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
                 <?php } ?>
               </ul>
         </nav>
@@ -72,7 +72,7 @@
                             <h3><?= $data['text_header']; ?></h3>
                             <span><?= $data['text_span']; ?></span>
                             <br>
-                            <a href="/login/isLogged_in" class="btn">add to cart</a>
+                            <a href="/login/isLogged_in" class="btn">Shop Now</a>
                         </div>
                     </div>
                 <?php endforeach;?>
@@ -92,7 +92,7 @@
               <h2>Your Dream</h2>
               <h2 class="category-line">Room</h2>
               <div class="icon-text-container">
-                <i class="fa fa-couch fa-6x"></i>
+                <i class="fa fa-couch fa-3x"></i>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>   
               <a href="store.html"><h3>All Categories > </h3>
@@ -124,7 +124,7 @@
                 <div class="text">
                     <p><?= $data['text_span']; ?></p>
                     <h2><?= $data['name']; ?></h2>
-                    <a href="/login/isLogged_in" class="btn">add to cart</a>
+                    <a href="/userRoomDesc/<?= $data['id']; ?>" class="btn">add to cart</a>
                 </div>
               </div>
             </div>
@@ -142,11 +142,15 @@
 
         <div class="box-container">
             <?php foreach ($product as $data) : ?>
+            <form action="/cart/add" method="POST">
+                <?= csrf_field() ?>
+                <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
+                <input type="hidden" name="product_id" value="<?= $data['id']?>">
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="/img/<?= $data['image']; ?>" alt="">
-                <h3><?= $data['name']; ?></h3>
+                <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
+                <img src="/img/<?= $data['image']?>" alt="">
+                <h3><?= $data['name'];?></h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -154,10 +158,11 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price"><?= $data['price']; ?><span><?= $data['price']; ?></span></div>
-                <a href="/login/isLogged_in" class="btn">add to cart</a>
+                <div class="price"><?= $data['price'];?></div>
+                <input type="submit" value="add to cart" class="btn" name="submit_btn">
             </div>
-            <?php endforeach;?>
+            </form>
+        <?php endforeach;?>
         </div>
 
     </section>
@@ -182,7 +187,7 @@
 
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -191,7 +196,7 @@
                     src="https://static.overlay-tech.com/assets/613deaec-0474-4962-8ac8-a4fed9ef3b96.svg"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['phone'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -201,7 +206,7 @@
                         src="https://static.overlay-tech.com/assets/d57061ae-6d98-438c-84e4-584eb9d3441d.svg"
                         />
                     </i>
-                    Bandung City
+                    <?= $contactUs[0]['location'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -211,11 +216,11 @@
                         src="https://static.overlay-tech.com/assets/b8d97384-b755-4356-9316-63e30f472b15.svg"
                         />
                     </i>
-                    madju-studio.com
+                    <?= $contactUs[0]['website'];?>
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -224,7 +229,7 @@
                     src="https://img.icons8.com/color/48/null/whatsapp--v1.png"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['whatsapp'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -234,7 +239,7 @@
                         src="https://img.icons8.com/fluency/48/null/instagram-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['instagram'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -248,7 +253,7 @@
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -257,7 +262,7 @@
                         src="https://img.icons8.com/color/48/null/gmail-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['facebook'];?>
                 </a>
 
             </div>
@@ -270,14 +275,6 @@
             <div class="line-right"></div>
         </div>
         <!-- Copyright -->
-
-        <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-            <a href="#" class="fab fa-pinterest"></a>
-        </div>
     </footer>
     <!-- footer -->
 

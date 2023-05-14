@@ -10,7 +10,7 @@
 <body>
     <div class="sign-in">
         <div class="background">
-          <a href="/index">
+          <a href="/index.html">
             <img
             alt=""
             class="rectangle-27"

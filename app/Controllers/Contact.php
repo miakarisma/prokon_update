@@ -1,4 +1,5 @@
 <?php namespace App\Controllers;
+use App\Models\ContactUsModel;
 
 class Contact extends BaseController
 {
@@ -17,5 +18,26 @@ class Contact extends BaseController
             "$message Thank you!");
             return redirect()->to($url);
         }
+    }
+    public function orderProduct()
+    {
+        if($this->request->is('post'))
+        {    
+            $product_name = $this->request->getVar('product_name');
+            $product_price = $this->request->getVar('product_price');
+            $quantity = $this->request->getVar('quantity');
+            
+            $data['product_name'] = $product_name;
+            $data['product_price'] = $product_price;
+            $data['quantity'] = $quantity;
+            $contactUsModel = new ContactUsModel();
+            $data['contactUs'] = $contactUsModel->getAllContactUs();
+
+            return view('page/contact-us', $data);
+        
+        }else{
+            return redirect()->to(base_url('/cart'));
+        }
+        
     }
 }
