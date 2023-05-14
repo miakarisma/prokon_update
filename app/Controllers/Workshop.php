@@ -1,34 +1,31 @@
 <?php namespace App\Controllers;
-use App\Models\ProductModel;
+use App\Models\WorkshopModel;
 
-class Product extends BaseController
+class Workshop extends BaseController
 {
-    protected $productModel;
+    protected $workshopModel;
 
     public function __construct()
     {
-        $this->productModel = new ProductModel();
+        $this->workshopModel = new WorkshopModel();
     }
 
     public function index()
     {
-        $productModel = new ProductModel();
-        $data['product'] = $productModel->getAllProduct();
+        $workshopModel = new WorkshopModel();
+        $data['workshop'] = $workshopModel->getAllWorkshop();
 
-        echo view('product/index', $data);
+        echo view('workshop/index', $data);
     }
 
     public function create()
     {
-        return view('product/create');
+        return view('workshop/create');
     }
 
     public function save()
     {
         $rules = [
-            'name' => 'required|min_length[3]|max_length[45]',  
-            'price' => 'required', 
-            'description' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -41,43 +38,35 @@ class Product extends BaseController
                 $imageFile->move('img', $imageName); 
             }           
 
-            $this->productModel->save([
-                'name' => $this->request->getVar('name'),
-                'price' => $this->request->getVar('price'),
-                'description' => $this->request->getVar('description'),
+            $this->workshopModel->save([
                 'image' => $imageName,
             ]);
 
-            return redirect()->to(base_url('/ecommerce'));
+            return redirect()->to(base_url('/workshop'));
         }else{
-            return view('product/create');
+            return view('workshop/create');
         }
 
     }
     public function delete($id)
     {
-        $product = $this->productModel->find($id);
-        if($product['image'] != 'default.jpg'){
-            unlink('img/' . $product['image']);
+        $workshop = $this->workshopModel->find($id);
+        if($workshop['image'] != 'default.jpg'){
+            unlink('img/' . $workshop['image']);
         }
 
-        $this->productModel->delete($id);
-        return redirect()->to(base_url('/ecommerce'));
+        $this->workshopModel->delete($id);
+        return redirect()->to(base_url('/workshop'));
     }
-
     public function edit($id){
         $data = [
-            'product' => $this->productModel->getProductById($id)
+            'workshop' => $this->workshopModel->getWorkshopById($id)
         ];
 
-        return view('product/edit', $data);
+        return view('workshop/edit', $data);
     }
-    
     public function update($id){
         $rules = [
-            'name' => 'required|min_length[3]|max_length[45]',  
-            'price' => 'required',
-            'description' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/jpg,image/jpeg,image/png]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -94,16 +83,13 @@ class Product extends BaseController
                 }
             }
 
-            $this->productModel->save([
+            $this->workshopModel->save([
                 'id' => $id,
-                'name' => $this->request->getVar('name'),
-                'price' => $this->request->getVar('price'),
-                'description' => $this->request->getVar('description'),
                 'image' => $imageName,
             ]);
-            return redirect()->to(base_url('/ecommerce'));
+            return redirect()->to(base_url('/workshop'));
         }else{
-            return redirect()->to('/product/edit/'.$id);
+            return redirect()->to('/workshop/edit/'.$id);
         }
     }
 }

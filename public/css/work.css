@@ -303,6 +303,7 @@ section{
     padding: 1rem 0;
     line-height: 2;
 }
+/* About Us */
 
 /* Logo About Us */
 .group-3 {
@@ -389,7 +390,7 @@ section{
 
 .product .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 2.5rem;
 }
 
@@ -397,50 +398,14 @@ section{
     padding: 2.5rem;
     background: var(--bg);
     border-radius: .5rem;
-    border: .1rem solid var(--main-color);
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
     text-align: center;
 }
 
-.product .box-container .box .fa-heart,
-.product .box-container .box .fa-eye{
-    position: absolute;
-    top: 1.5rem;
-    background: var(--white);
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    color: var(--black);
-} 
-
-.product .box-container .box .fa-heart:hover,
-.product .box-container .box .fa-eye:hover{
-    background: var(--main-color);
-    color: var(--white);
-}
-
-.product .box-container .box .fa-heart{
-    right: -15rem;
-}
-
-.product .box-container .box .fa-eye{
-    left: -15rem;
-}
-
-.product .box-container .box:hover .fa-heart{
-    right: 1.5rem;
-}
-
-.product .box-container .box:hover .fa-eye{
-    left: 1.5rem;
-}
-
 .product .box-container .box img{
-    height: 19rem;
+    height: 20rem;
     margin: 1rem 0;
 }
 
@@ -453,27 +418,6 @@ section{
     font-size: 2.5rem;
 }
 
-.product .box-container .box .stars{
-    padding: 1rem 0;
-}
-
-.product .box-container .box .stars i {
-    font-size: 1.7rem;
-    color: var(--primary-color);
-}
-
-.product .box-container .box .price{
-    color: var(--main-color);
-    font-weight: bolder;
-    margin-right: 1rem;
-    font-size: 2.5rem;
-}
-
-.product .box-container .box .price span{
-    text-decoration: line-through;
-    font-weight: lighter;
-    font-size: 1.5rem;
-}
 /* product */
 
 /* footer */

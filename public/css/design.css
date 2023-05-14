@@ -309,6 +309,7 @@ section{
   }
   
   .fa.fa-couch {
+    padding-top: 5px;
     color: var(--brown);
     opacity: 1;
   }

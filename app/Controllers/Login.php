@@ -78,6 +78,9 @@ class Login extends BaseController
         ];
         if($this->request->is('post') && $this->validate($rules))
         {
+            $email_user = $this->request->getVar('email');
+            $dataUser = $this->userModel->getUserByEmail($email_user);
+
             // $imageFile = $this->request->getFile('image');
             // if($imageFile->getError() == 4){
             //     $imageName = "default.jpg";
@@ -85,21 +88,57 @@ class Login extends BaseController
             //     $imageName = $imageFile->getRandomName();
             //     $imageFile->move('img', $imageName); 
             // }           
-
-            $this->userModel->save([
-                'email' => $this->request->getVar('email'),
-                'username' => $this->request->getVar('fullname'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'role' => 2,
-                // 'gambar' => $imageName,
-            ]);
-
-            return redirect()->to(base_url('/login'));
+            if ($dataUser['email'] == $email_user) {
+                echo '<script>alert("Warning: Email yang anda masukan sudah digunakan!");</script>';
+                // echo "Email yang anda masukan sudah digunakan!";
+                return view('Page/sign-up');
+            }
+            else {
+                $this->userModel->save([
+                    'email' => $this->request->getVar('email'),
+                    'username' => $this->request->getVar('fullname'),
+                    'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                    'role' => 2,
+                    // 'gambar' => $imageName,
+                ]);
+                return redirect()->to(base_url('/login'));
+            }
         }else{
             // echo "aaa";
             return view('Page/sign-up');
         }
 
+    }
+
+    public function forgotPass()
+    {
+        $email_user = $this->request->getVar('email');
+        
+        $data = [
+            'account' => $this->userModel->getUserByEmail($email_user)
+        ];
+
+        // return view('product/edit', $data);
+
+        $rules = [
+            // 'id_user' => 'required',  
+            // 'email' => 'required|min_length[3]|max_length[45]', 
+            // 'fullname' => 'required|min_length[3]|max_length[45]',
+            'password' => 'required|min_length[8]|max_length[20]' 
+            // 'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
+        ];
+        if($this->request->is('post') && $this->validate($rules))
+        {
+            $this->productModel->save([
+                'username' => $data['name'],
+                'email' => $data['email'],
+                'password' => $this->request->getVar('password'),
+                'role' => 2,
+            ]);
+            return redirect()->to(base_url('/ecommerce'));
+        }else{
+            return redirect()->to('/account/edit/'.$data['id']);
+        }
     }
 
     public function logout()

@@ -101,6 +101,13 @@ $routes->get('/contactUs/delete/(:num)', 'ContactUs::delete/$1');
 $routes->get('/contactUs/edit/(:num)', 'ContactUs::edit/$1');
 $routes->post('/contactUs/update/(:num)', 'ContactUs::update/$1');
 
+$routes->get('/workshop', 'Workshop::index');
+$routes->get('/workshop/create', 'Workshop::create');
+$routes->post('/workshop/save', 'Workshop::save');
+$routes->get('/workshop/delete/(:num)', 'Workshop::delete/$1');
+$routes->get('/workshop/edit/(:num)', 'Workshop::edit/$1');
+$routes->post('/workshop/update/(:num)', 'Workshop::update/$1');
+
 $routes->get('/cart', 'Cart::index');
 $routes->post('/cart/add', 'Cart::add');
 $routes->get('/cart/plusButton/(:num)', 'Cart::plusButton/$1');
@@ -122,11 +129,18 @@ $routes->get('/admin', 'Admin::index');
 
 $routes->get('/userProject', 'User::project');
 $routes->get('/userStore', 'User::ecommerce');
-$routes->get('/userService', 'Page::service');
-$routes->get('/userAbout', 'AboutUs::usrIndex');
+$routes->get('/userService', 'User::service');
+$routes->get('/userAbout', 'User::about');
 $routes->get('/userContact', 'User::contactUs');
-$routes->get('/userDesign', 'Design::index');
+$routes->get('/userDesign', 'User::design');
 $routes->get('/userWorkshop', 'User::workshop');
+
+$routes->get('/userProjectDesc/(:num)', 'User::projectDesc/$1');
+$routes->get('/userRoomDesc/(:num)', 'User::roomDesc/$1');
+$routes->get('/userProductDesc/(:num)', 'User::productDesc/$1');
+
+$routes->post('contact/orderProduct/', 'contact::orderProduct');
+
 
 /*
  * --------------------------------------------------------------------

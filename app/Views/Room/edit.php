@@ -39,6 +39,10 @@
             <br/>
             <input type="text" name="text_span" size="50" value="<?= $room['text_span'];?>"/>
             <br/>
+            <label for="">description</label>
+            <br/>
+            <input type="text" name="description" size="50" value="<?= $room['description'];?>"/>
+            <br/>
             <input type="submit" value="Edit">
   </form>
   <script src="/js/scripts.js"></script>

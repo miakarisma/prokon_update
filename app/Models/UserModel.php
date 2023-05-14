@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class UserModel extends Model
 {
     protected $table = 'account';
-    protected $allowedFields = ['email', 'username', 'password'];
+    protected $allowedFields = ['email', 'username', 'password', 'role'];
     
     public function getUserByUsername($username) {
         return $this->where(['username' => $username])->first();

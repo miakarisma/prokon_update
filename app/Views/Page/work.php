@@ -26,36 +26,32 @@
                         class="logo-madju"
                         src="https://static.overlay-tech.com/assets/5e0c9ada-d7d1-4696-bd9a-34a8a1129f7e.png"
                         />
-                        <!-- <div class="half-circle"> -->
                             <img
                             alt="logo-madju"
                             class="half-circle"
                             src="https://static.overlay-tech.com/assets/6518e249-ef29-408e-85e4-4aa517864d9d.svg"
                             />
-                        <!-- </div> -->
                         </a>
                         </li>
-                    <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i>Category</a></li>
-                    <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i>Sale</a></li>
+                    <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i> Category</a></li>
+                    <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i> Sale</a></li>
                     <li class="nav-item">
                         <form class="form-search" id="my-form">
                             <input class="input-search" type="text" placeholder="Search...">
                             <button class="btn-search" type="submit">Search</button>
                         </form>
                     </li>
-                    <li class="nav-item"><a href="/userContact"><i class="fas fa-shopping-cart"></i>Shopping Cart</a></li>
+                    <li class="nav-item"><a href="/userContact"><i class="fas fa-shopping-cart"></i> Shopping Cart</a></li>
                     <?php if (!session('id')) { ?>
-                        <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                        <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
                     <?php } 
                         else { ?>
-                            <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                            <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
                     <?php } ?>
               </ul>
         </nav>
 
         <div class="icons">
-            <!-- <div id="cart-btn"></div>
-            <div id="account-btn"></div> -->
             <div id="menu-btn" class="fas fa-bars"></div>
         </div>
 
@@ -65,51 +61,17 @@
     <section class="home" id="home">
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide1.jpg) no-repeat;">
+            <?php foreach ($frontPage as $data) : ?>
+                <div class="swiper-slide slide" style="background: url(img/<?= $data['image']; ?>) no-repeat;">
                     <div class="content">
-                        <h3>Workshop</h3>
-                        <span>with you since 1965</span>
+                        <h3><?= $data['text_header']; ?></h3>
+                        <span><?= $data['text_span']; ?></span>
                         <br>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide2.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>Workshop</h3>
-                        <span>with you since 1966</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide3.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>Workshop</h3>
-                        <span>with you since 1967</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide4.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>Workshop</h3>
-                        <span>with you since 1968</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide5.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>Workshop</h3>
-                        <span>with you since 1969</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
+                <?php endforeach;?>
+                
 
             </div>
         </div>
@@ -118,138 +80,33 @@
 
     <!-- home -->
 
-
     <section class="about" id="about">
-        <h1 class="heading"> discover <span>our</span> story</h1>
-
         <div class="row">
-
-            <!-- <div class="image"> -->
                 <div class="group-3">
-                    <!-- <div class="map-container"> -->
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56400419367!2d107.56075552119081!3d-6.90344237941637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1682763058950!5m2!1sen!2sid" 
                         width="550" 
                         height="450" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <!-- </div> -->
                   </div>
-                <!-- <img src="images/about.jpg" alt=""> -->
-            <!-- </div> -->
-
             <div class="content">
                 <h3>we make your home more astonishing</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque quas distinctio culpa quam voluptatem omnis libero saepe nisi dolores veniam sequi odit, unde dolorem eos reiciendis repellendus pariatur ducimus corporis?</p>
             </div>
-
         </div>
-
     </section>
 
     <!-- product -->
 
     <section class="product" id="product">
-
-        <h1 class="heading" id="heading">our <span> products</span></h1>
-
         <div class="box-container">
 
+        <?php foreach ($workshop as $data) : ?>
             <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-1.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
+                <img src="/img/<?= $data['image']; ?>" alt="">
             </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-2.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-3.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-4.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-5.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-6.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
+            <?php endforeach;?>
 
         </div>
 
@@ -257,13 +114,11 @@
 
     <!-- product -->
 
-    
-
     <!-- footer -->
     <footer class="footer" id="contact">
         <div class="box-container">
             <div class="box">
-                <h3>Location</h3>
+                
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56400419367!2d107.56075552119081!3d-6.90344237941637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1682763058950!5m2!1sen!2sid" 
                     width="250" 
@@ -275,7 +130,7 @@
 
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -284,7 +139,7 @@
                     src="https://static.overlay-tech.com/assets/613deaec-0474-4962-8ac8-a4fed9ef3b96.svg"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['phone'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -294,7 +149,7 @@
                         src="https://static.overlay-tech.com/assets/d57061ae-6d98-438c-84e4-584eb9d3441d.svg"
                         />
                     </i>
-                    Bandung City
+                    <?= $contactUs[0]['location'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -304,11 +159,11 @@
                         src="https://static.overlay-tech.com/assets/b8d97384-b755-4356-9316-63e30f472b15.svg"
                         />
                     </i>
-                    madju-studio.com
+                    <?= $contactUs[0]['website'];?>
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -317,7 +172,7 @@
                     src="https://img.icons8.com/color/48/null/whatsapp--v1.png"
                     />
                     </i>
-                    +6287689566
+                    <?= $contactUs[0]['whatsapp'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -327,7 +182,7 @@
                         src="https://img.icons8.com/fluency/48/null/instagram-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['instagram'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -341,7 +196,7 @@
                 </a>
             </div>
             <div class="box">
-                <h3>Judul</h3>
+                
                 <a href="#">
                     <i>
                         <img
@@ -350,7 +205,7 @@
                         src="https://img.icons8.com/color/48/null/gmail-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $contactUs[0]['facebook'];?>
                 </a>
 
             </div>
@@ -363,14 +218,6 @@
             <div class="line-right"></div>
         </div>
         <!-- Copyright -->
-
-        <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-            <a href="#" class="fab fa-pinterest"></a>
-        </div>
     </footer>
     <!-- footer -->
 
