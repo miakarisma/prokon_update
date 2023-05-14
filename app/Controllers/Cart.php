@@ -13,7 +13,7 @@ class Cart extends BaseController
     public function index()
     {
         $cartModel = new CartModel();
-        $data['cart'] = $cartModel->getUserCart(1);
+        $data['cart'] = $cartModel->getUserCart(session('id'));
 
         echo view('cart/index', $data);
     }

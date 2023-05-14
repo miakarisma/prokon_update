@@ -32,7 +32,7 @@ $routes->set404Override();
 // $routes->get('/', 'Home::index');
 // $routes->get('/about', 'Page::about');
 
-$routes->get('/page', 'Page::index');
+$routes->get('/page', 'User::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/login/create', 'Login::create');
 $routes->post('/login/save', 'Login::save');
@@ -111,7 +111,7 @@ $routes->get('/ecommerce', 'Ecommerce::index');
 
 $routes->post('/contact', 'Contact::index');
 
-$routes->get('/', 'Page::index');
+$routes->get('/', 'User::index');
 $routes->post('/login/process', 'Login::process');
 $routes->get('/logout', 'Login::logout');
 
@@ -120,13 +120,13 @@ $routes->get('/admin', 'Admin::index');
 
 // rout user
 
-$routes->get('/userProject', 'Project::usrIndex');
-$routes->get('/userStore', 'Store::usrIndex');
+$routes->get('/userProject', 'User::project');
+$routes->get('/userStore', 'User::ecommerce');
 $routes->get('/userService', 'Page::service');
 $routes->get('/userAbout', 'AboutUs::usrIndex');
-$routes->get('/userContact', 'ContactUs::usrIndex');
+$routes->get('/userContact', 'User::contactUs');
 $routes->get('/userDesign', 'Design::index');
-$routes->get('/userWorkshop', 'Workshop::usrIndex');
+$routes->get('/userWorkshop', 'User::workshop');
 
 /*
  * --------------------------------------------------------------------

@@ -132,6 +132,7 @@ section{
     color: #333;
   }
   .nav-item-image .logo-madju{
+    padding-left: 20px;
     width: 100px;
     height: 100px;
   }

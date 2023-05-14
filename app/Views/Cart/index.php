@@ -10,7 +10,7 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
     
@@ -21,11 +21,11 @@
         <nav class="navbar">
             <ul class="nav-list">
                 
-                <li class="nav-item"><a href="#"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
-                <li class="nav-item"><a href="#"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
-                <li class="nav-item"><a href="#"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
+            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
+                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
+                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
                 <li class="nav-item nav-item-image">
-                <a href="#">
+                <a href="/page">
                   <img
                   alt="logo-madju"
                   class="logo-madju"
@@ -40,9 +40,14 @@
                   <!-- </div> -->
                 </a>
                 </li>
-                <li class="nav-item"><a href="#"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
-                <li class="nav-item"><a href="#"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
-                <li class="nav-item"><a href="<?= base_url(); ?>login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
+                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
+                <?php if (!session('id')) { ?>
+                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <?php } 
+                    else { ?>
+                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                <?php } ?>
               </ul>
         </nav>
 
@@ -55,370 +60,61 @@
     </section>
     <!-- header -->
 
-    <section class="home" id="home">
-
-        <div class="swiper home-slider">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide1.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide2.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide3.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide4.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide5.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- home -->
-
-    <!-- about us -->
-
-    <section class="about" id="about">
-        <h1 class="heading"> discover <span>our</span> story</h1>
-
-        <div class="row">
-
-            <!-- <div class="image"> -->
-                <div class="group-3">
-                    <img
-                      alt=""
-                      class="door"
-                      src="https://static.overlay-tech.com/assets/5581f17e-7f31-447a-975b-d0ab9d0884c9.svg"
-                    /><img
-                      alt=""
-                      class="rectangle-3"
-                      src="https://static.overlay-tech.com/assets/0fc40cb1-ceb5-416f-8876-55741a97292b.png"
-                    />
-                  </div>
-                <!-- <img src="images/about.jpg" alt=""> -->
-            <!-- </div> -->
-
-            <div class="content">
-                <span>welcome to our shop</span>
-                <h3>we make your home more astonishing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque quas distinctio culpa quam voluptatem omnis libero saepe nisi dolores veniam sequi odit, unde dolorem eos reiciendis repellendus pariatur ducimus corporis?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- about us -->
-
-<!-- project -->
-
-<section class="project" id="project">
-
-    <h1 class="heading"> our <span> projects</span></h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- project -->
-
-    <!-- services -->
-
-    <section class="services" id="services">
-
-        <h1 class="heading">our <span> services</span></h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="images/service-1.png" alt="">
-                <h3>product designing</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
-            </div>
-
-            <div class="box">
-                <img src="images/service-2.png" alt="">
-                <h3>product quality</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
-            </div>
-
-            <div class="box">
-                <img src="images/service-3.png" alt="">
-                <h3>24/7 support</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- services -->
-
     <!-- product -->
 
     <section class="product" id="product">
 
-        <h1 class="heading" id="heading">our <span> products</span></h1>
+        <h1 class="heading" id="heading">Your <span> Item</span></h1>
 
         <div class="box-container">
-
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php
             $total_price=0;
-            foreach ($cart as $data) : 
+            foreach ($cart as $index => $data) : 
                 $total_price = $total_price + ($data['product_price'] * $data['quantity']);
             ?>
-                    <div class="box">
-                        <h3><?= $data['account_id'];?></h3>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                <tr>
+                    <td><?= $index + 1 ?></td>
+                    <td><img src="/img/<?= $data['image'] ?>"/></td>
+                    <td><?= $data['product_name'] ?></td>
+                    <td><?= $data['product_price'] ?></td>
+                    <td>
+                        <div class="quantity">
+                            <input type="button" value="-" class="quantity-btn" onclick="location.href='<?= base_url('cart/minButton/'.$data['id'].'') ?>'">
+                            <span><?= $data['quantity'] ?></span>
+                            <input type="button" value="+" class="quantity-btn" onclick="location.href='<?= base_url('cart/plusButton/'.$data['id'].'') ?>'">
                         </div>
-                        <div class="price">name: <?= $data['product_name'];?> </div>
-                        <div class="price">price: <?= $data['product_price'];?> </div>
-                        <div class="price">quantity: <?= $data['quantity'];?> </div>
-                        <input onclick="location.href='<?= base_url('cart/minButton/'.$data['id'].'') ?>'" type="" value="-" class="btn" name="min_btn">
-                        <input onclick="location.href='<?= base_url('cart/removeButton/'.$data['id'].'') ?>'" type="" value="remove" class="btn" name="remove_btn">
-                        <input onclick="location.href='<?= base_url('cart/plusButton/'.$data['id'].'') ?>'" type="" value="+" class="btn" name="add_btn">
-                    </div>
+                    </td>
+                    <td>
+                        <!-- <div class="action"> -->
+                            <input class="action" type="button" value="Remove" class="action-btn" onclick="location.href='<?= base_url('cart/removeButton/'.$data['id'].'') ?>'">
+                        <!-- </div> -->
+                    </td>
+                </tr>
             <?php endforeach;?>
-        </div>
-            <h2>total price: <?= $total_price?></h2>
+            <tr>
+                <td colspan="3"></td>
+                <td colspan="2">Total Price:</td>
+                <td><?= $total_price ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
     </section>
 
     <!-- product -->
-
-    <!-- team -->
-
-    <section class="team" id="team">
-
-        <h1 class="heading"> our <span>team</span></h1>
-
-        <div class="swiper team-slider">
-
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-1.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-2.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-3.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-4.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-5.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/team-6.png" alt="">
-                        <div class="share">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-instagram"></a>
-                            <a href="#" class="fab fa-linkedin"></a>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h3>john deo</h3>
-                        <span>designer</span> 
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- team -->
-
-    <!-- contact -->
-
-    <section class="contact" id="contact">
-
-        <h1 class="heading"> <span>contact</span> us</h1>
-
-        <div class="row">
-
-            <div class="image">
-                <img src="images/contact.png" alt="">
-            </div>
-
-            <form action="">
-                <h3>get in touch</h3>
-
-                <span>your name</span>
-                <input type="text" class="box">
-
-                <span>your number</span>
-                <input type="number" class="box">
-
-                <span>your email</span>
-                <input type="email" class="box">
-
-                <span>your message</span>
-                <textarea class="box" cols="30" rows="10"></textarea>
-
-                <input type="submit" value="send message" class="btn">
-
-            </form>
-
-        </div>
-
-    </section>
-
-    <!-- contact -->
 
     <!-- footer -->
     <footer class="footer" id="contact">

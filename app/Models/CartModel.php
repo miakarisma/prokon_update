@@ -19,7 +19,7 @@ class CartModel extends Model{
         $db = \Config\Database::connect();
 
         return  $db->table($this->table)
-        ->select($this->table.'.id as id,account_id, product_id, product.name as product_name, product.price as product_price, quantity')
+        ->select($this->table.'.id as id,account_id, product_id, product.image as image, product.name as product_name, product.price as product_price, quantity')
         ->join($this->table_product,$this->table_product.'.id='.$this->table.'.product_id')
         ->where('account_id', $account_id)->get()->getResultArray();
         

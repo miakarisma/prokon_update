@@ -70,23 +70,16 @@
 
             <div class="box">
                 <img src="../images/service-1.png" alt="">
-                <h3>product designing</h3>
+                <h3>Design Interior</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
                 <a href="/userDesign" class="btn"> read more</a>
             </div>
 
             <div class="box">
                 <img src="../images/service-2.png" alt="">
-                <h3>product quality</h3>
+                <h3>Workshop</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="/userService" class="btn"> read more</a>
-            </div>
-
-            <div class="box">
-                <img src="../images/service-3.png" alt="">
-                <h3>24/7 support</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="/userContact" class="btn"> read more</a>
+                <a href="/userWorkshop" class="btn"> read more</a>
             </div>
 
         </div>

@@ -132,6 +132,7 @@ section{
     color: #333;
   }
   .nav-item-image .logo-madju{
+    padding-left: 20px;
     width: 100px;
     height: 100px;
   }
@@ -375,22 +376,6 @@ section{
     margin-right: 51px;
     padding: 65px 0 17px 48px;
     position: relative;
-  }
-  .door {
-    width: 295px;
-    height: 470px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    
-  }
-  .rectangle-3 {
-    width: 381px;
-    height: 388px;
-    position: relative;
-    box-shadow: 6px 6px 8px -1px var(--transparent-black);
-    border-radius: 191px;
-    box-shadow: var(--box-shadow);
   }
 /* Logo About Us */
 

@@ -66,51 +66,16 @@
     <section class="home" id="home">
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide1.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
+                <?php foreach ($frontPage as $data) : ?>
+                    <div class="swiper-slide slide" style="background: url(../img/<?= $data['image']; ?>) no-repeat;">
+                        <div class="content">
+                            <h3><?= $data['text_header']; ?></h3>
+                            <span><?= $data['text_span']; ?></span>
+                            <br>
+                            <a href="/login/isLogged_in" class="btn">add to cart</a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide2.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1966</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide3.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1967</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide4.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1968</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(../images/home-slide5.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1969</span>
-                        <br>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-                </div>
+                <?php endforeach;?>
 
             </div>
         </div>
@@ -134,18 +99,12 @@
               </a>
               <div class="all-line"></div>           
             </div>
+            <?php foreach ($category as $data) : ?>
             <div class="category-column" id="category-image">
-              <img src="https://blog.atome.id/wp-content/uploads/2022/03/9-rekomendasi-furniture-stores-atau-toko-furnitur-terbaik.jpg" alt="Image 1">
-              <h4>Table</h4>
+              <img src="/img/<?= $data['image']; ?>" alt="Image 1">
+              <h4><?= $data['name']; ?></h4>
             </div>
-            <div class="category-column" id="category-image">
-              <img src="https://blog.atome.id/wp-content/uploads/2022/03/9-rekomendasi-furniture-stores-atau-toko-furnitur-terbaik.jpg" alt="Image 2">
-              <h4>Table</h4>
-            </div>
-            <div class="category-column" id="category-image">
-              <img src="https://blog.atome.id/wp-content/uploads/2022/03/9-rekomendasi-furniture-stores-atau-toko-furnitur-terbaik.jpg" alt="Image 3">
-              <h4>Table</h4>
-            </div>
+            <?php endforeach;?>
         </div>
 
         <div class="container-break-line">
@@ -158,25 +117,18 @@
     <!-- room -->
     <section class="room">
         <div class="room-container">
+            <?php foreach ($room as $data) : ?>
             <div class="column content-column">
-              <img src="https://blog.atome.id/wp-content/uploads/2022/03/9-rekomendasi-furniture-stores-atau-toko-furnitur-terbaik.jpg" class="content-column" id="left-column"/>
+              <img src="/img/<?= $data['image']; ?>" class="content-column" id="left-column"/>
               <div class="overlay">
                 <div class="text">
-                    <p>20% off all item</p>
-                    <h2>Dining Room</h2>
-                    <a href="#" class="btn">add to cart</a>
+                    <p><?= $data['text_span']; ?></p>
+                    <h2><?= $data['name']; ?></h2>
+                    <a href="/login/isLogged_in" class="btn">add to cart</a>
                 </div>
               </div>
             </div>
-            <div class="column content-column">
-              <img src="https://blog.atome.id/wp-content/uploads/2022/03/9-rekomendasi-furniture-stores-atau-toko-furnitur-terbaik.jpg" class="content-column" id="left-column"/>
-              <div class="overlay">
-                <div class="text">
-                    <p>20% off all item</p>
-                    <h2>Dining Room</h2>
-                    <a href="#" class="btn">add to cart</a></div>
-              </div>
-            </div>
+            <?php endforeach;?>
           </div>
     </section>
     
@@ -189,12 +141,12 @@
         <h1 class="heading" id="heading">our <span> products</span></h1>
 
         <div class="box-container">
-
+            <?php foreach ($product as $data) : ?>
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-1.jpg" alt="">
-                <h3>modern furniture</h3>
+                <img src="/img/<?= $data['image']; ?>" alt="">
+                <h3><?= $data['name']; ?></h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -202,90 +154,10 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
+                <div class="price"><?= $data['price']; ?><span><?= $data['price']; ?></span></div>
+                <a href="/login/isLogged_in" class="btn">add to cart</a>
             </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-2.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-3.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-4.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-5.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../images/product-6.jpg" alt="">
-                <h3>modern furniture</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price">$18.99 <span>$21.99</span></div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
+            <?php endforeach;?>
         </div>
 
     </section>

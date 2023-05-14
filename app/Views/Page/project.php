@@ -67,52 +67,22 @@
     <h1 class="heading"> our <span> projects</span></h1>
 
     <div class="box-container">
-
-        <div class="box">
-            <div class="image">
-                <img src="../images/blog-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
+        <?php foreach ($project as $data) : ?>
+            <div class="box">
+                <div class="image">
+                    <img src="/img/<?= $data['image']; ?>" alt="">
+                </div>
+                <div class="content">
+                    <h3><?= $data['name']; ?></h3>
+                    <p><?= $data['description']; ?></p>
+                    <a href="#" class="btn"> read more</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i><?= $data['date']; ?></a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../images/blog-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="../images/blog-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
+        <?php endforeach;?>
     </div>
 
 </section>
