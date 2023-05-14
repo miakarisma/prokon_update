@@ -121,24 +121,28 @@ section{
   
   .nav-item {
     display: inline-block; /* Make the element inline-block */
-  white-space: nowrap; /* Prevent line break */
-  text-align: center;
+    white-space: nowrap; /* Prevent line break */
+    text-align: center;
   }
   
   .nav-item a {
     display: block;
     padding: 10px;
+    padding-left: 20px;
     text-decoration: none;
     color: #333;
   }
   .nav-item-image .logo-madju{
+    /* padding-top: 60px; */
     width: 100px;
     height: 100px;
+    z-index: 1;
   }
 
   .half-circle {
     position: absolute;
-    bottom: -67px;
+    /* padding-bottom: 25px; */
+    bottom: -57px;
     left: 8%;
     transform: translateX(-8%);
     width: 250px;

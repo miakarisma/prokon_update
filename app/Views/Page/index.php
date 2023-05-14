@@ -65,42 +65,14 @@
         <button class="circle-button right-button" onclick="nextSlide()"><div id="arrow-right-btn" class="fas fa-arrow-right"></div></button>
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide1.jpg) no-repeat;">
+                <?php foreach ($frontPage as $data) : ?>
+                <div class="swiper-slide slide" style="background: url(../img/<?= $data['image']; ?>) no-repeat;">
                     <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1965</span>
+                        <h3><?= $data['text_header']; ?></h3>
+                        <span><?= $data['text_span']; ?></span>
                     </div>
                 </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide2.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1966</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide3.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1967</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide4.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1968</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide" style="background: url(images/home-slide5.jpg) no-repeat;">
-                    <div class="content">
-                        <h3>we just make a perfect furniture for home</h3>
-                        <span>with you since 1969</span>
-                    </div>
-                </div>
-
+                <?php endforeach;?>
             </div>
         </div>
 
@@ -168,35 +140,7 @@
         </div>
     <?php endforeach;?>
 
-        <div class="box">
-            <div class="image">
-                <img src="images/blog-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/blog-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
-                <a href="#" class="btn"> read more</a>
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -211,26 +155,25 @@
         <h1 class="heading">our <span> services</span></h1>
 
         <div class="box-container">
-
             <div class="box">
                 <img src="images/service-1.png" alt="">
                 <h3>product designing</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
+                <a href="/userDesign" class="btn"> read more</a>
             </div>
 
             <div class="box">
                 <img src="images/service-2.png" alt="">
                 <h3>product quality</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
+                <a href="/userWorkshop" class="btn"> read more</a>
             </div>
 
             <div class="box">
                 <img src="images/service-3.png" alt="">
                 <h3>24/7 support</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
-                <a href="#" class="btn"> read more</a>
+                <a href="/userContact" class="btn"> read more</a>
             </div>
 
         </div>
@@ -260,20 +203,18 @@
                     <i class="fas fa-star-half-alt"></i>
                 </div>
                 <div class="price"><?= $data['price'];?></div>
-                <a href="#" class="btn">add to cart</a>
+                <a href="/login/isLogged_in" class="btn">add to cart</a>
             </div>
         <?php endforeach;?>
-
         </div>
 
     </section>
 
-    <!-- product -->
-
-    
+    <!-- product --> 
 
     <!-- footer -->
     <footer class="footer" id="contact">
+    <?php foreach ($contactUs as $data) : ?>
         <div class="box-container">
             <div class="box">
                 <h3>Location</h3>
@@ -297,7 +238,7 @@
                     src="https://static.overlay-tech.com/assets/613deaec-0474-4962-8ac8-a4fed9ef3b96.svg"
                     />
                     </i>
-                    +6287689566
+                    <?= $data['phone'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -307,7 +248,7 @@
                         src="https://static.overlay-tech.com/assets/d57061ae-6d98-438c-84e4-584eb9d3441d.svg"
                         />
                     </i>
-                    Bandung City
+                    <?= $data['location'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -317,7 +258,7 @@
                         src="https://static.overlay-tech.com/assets/b8d97384-b755-4356-9316-63e30f472b15.svg"
                         />
                     </i>
-                    madju-studio.com
+                    <?= $data['website'];?>
                 </a>
             </div>
             <div class="box">
@@ -330,7 +271,7 @@
                     src="https://img.icons8.com/color/48/null/whatsapp--v1.png"
                     />
                     </i>
-                    +6287689566
+                    <?= $data['whatsapp'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -340,7 +281,7 @@
                         src="https://img.icons8.com/fluency/48/null/instagram-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $data['instagram'];?>
                 </a>
                 <a href="#">
                     <i>
@@ -363,7 +304,7 @@
                         src="https://img.icons8.com/color/48/null/gmail-new.png"
                         />
                     </i>
-                    Madju Studio
+                    <?= $data['facebook'];?>
                 </a>
 
             </div>
@@ -384,6 +325,7 @@
             <a href="#" class="fab fa-linkedin"></a>
             <a href="#" class="fab fa-pinterest"></a>
         </div>
+    <?php endforeach;?>
     </footer>
     <!-- footer -->
 

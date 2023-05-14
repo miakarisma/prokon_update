@@ -72,22 +72,24 @@
                 <img src="../images/contact.png" alt="">
             </div>
 
-            <form action="">
+            <form action="/contact" id="contact_form" method="POST" target="_blank">
+            <?= csrf_field() ?>
+                <input type="hidden" class="box" name="adminPhone" value="<?= $contactUs[0]['whatsapp'];?>">
                 <h3>get in touch</h3>
 
                 <span>your name</span>
-                <input type="text" class="box">
+                <input type="text" class="box" name="name">
 
                 <span>your number</span>
-                <input type="number" class="box">
+                <input type="number" class="box" name="phone">
 
                 <span>your email</span>
-                <input type="email" class="box">
+                <input type="email" class="box" name="email">
 
                 <span>your message</span>
-                <textarea class="box" cols="30" rows="10"></textarea>
+                <textarea class="box" cols="30" rows="10" name="message"></textarea>
 
-                <input type="submit" value="send message" class="btn">
+                <input type="submit" value="send message" class="btn" name="submit_btn">
 
             </form>
 

@@ -126,24 +126,21 @@
 
             <!-- <div class="image"> -->
                 <div class="group-3">
-                    <img
-                      alt=""
-                      class="door"
-                      src="https://static.overlay-tech.com/assets/5581f17e-7f31-447a-975b-d0ab9d0884c9.svg"
-                    /><img
-                      alt=""
-                      class="rectangle-3"
-                      src="https://static.overlay-tech.com/assets/0fc40cb1-ceb5-416f-8876-55741a97292b.png"
-                    />
+                    <!-- <div class="map-container"> -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56400419367!2d107.56075552119081!3d-6.90344237941637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1682763058950!5m2!1sen!2sid" 
+                        width="550" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!-- </div> -->
                   </div>
                 <!-- <img src="images/about.jpg" alt=""> -->
             <!-- </div> -->
 
             <div class="content">
-                <span>welcome to our shop</span>
                 <h3>we make your home more astonishing</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque quas distinctio culpa quam voluptatem omnis libero saepe nisi dolores veniam sequi odit, unde dolorem eos reiciendis repellendus pariatur ducimus corporis?</p>
-                <a href="page/about-us.html" class="btn">read more</a>
             </div>
 
         </div>

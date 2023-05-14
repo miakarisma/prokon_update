@@ -1,16 +1,19 @@
 <?php namespace App\Controllers;
 use App\Models\ProductModel;
 use App\Models\ProjectModel;
+use App\Models\ContactUsModel;
 
 class Page extends BaseController
 {
     protected $productModel;
     protected $projectModel;
+    protected $contactUsModel;
 
     public function __construct()
     {
         $this->productModel = new ProductModel();
         $this->projectModel = new ProjectModel();
+        $this->contactUsModel = new ContactUsModel();
     }
     public function index()
     {
@@ -18,6 +21,8 @@ class Page extends BaseController
         $data['product'] = $productModel->getAllProduct();
         $projectModel = new ProjectModel();
         $data['project'] = $projectModel->getAllProject();
+        $contactUsModel = new ContactUsModel();
+        $data['contactUs'] = $contactUsModel->getAllContactUs();
         echo view('Page/index', $data);
     }
 
