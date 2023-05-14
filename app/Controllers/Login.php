@@ -16,7 +16,7 @@ class Login extends BaseController
 
     public function isLogged_in()
     {
-        if (!session('id_user')) {
+        if (!session('id')) {
             return redirect()->to(base_url('/login'));
             // echo "success";
         }
@@ -30,18 +30,24 @@ class Login extends BaseController
         $email_user = $this->request->getVar('email');
         $nama_user = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $dataUser = $this->userModel->getEmail($email_user);
+        $dataUser = $this->userModel->getUserByEmail($email_user);
 
         if ($dataUser) {
-            // dd($password);
             if (password_verify($password, $dataUser['password'])) {
                 session()->set([
-                    'id_user' => $dataUser['id_user'],
-                    'username' => $dataUser['nama_user'],
-                    'email' => $dataUser['email_user'],
+                    'id' => $dataUser['id'],
+                    'username' => $dataUser['username'],
+                    'email' => $dataUser['email'],
+                    'role' => $dataUser['role'],
                     'logged_in' => TRUE
                 ]);
-                return redirect()->to(base_url('/page'));
+
+                if (session('role')!=1) {
+                    return redirect()->to(base_url('/page'));
+                    // echo "success";
+                }else{
+                    return redirect()->to(base_url('/admin'));
+                }
             }
             else {
                 dd($password);
@@ -81,8 +87,8 @@ class Login extends BaseController
             // }           
 
             $this->userModel->save([
-                'email_user' => $this->request->getVar('email'),
-                'nama_user' => $this->request->getVar('fullname'),
+                'email' => $this->request->getVar('email'),
+                'username' => $this->request->getVar('fullname'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'role' => 2,
                 // 'gambar' => $imageName,

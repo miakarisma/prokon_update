@@ -1,0 +1,70 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #EEEEEE;
+}
+
+h1, h2 {
+  color: #293242;
+  text-align: center;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  flex-basis: 100%;
+  background-color: #293242;
+  color: #EEEEEE;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: .5rem;
+}
+
+input[type="text"], input[type="file"] {
+  flex-grow: 1;
+  padding: .8rem;
+  border: 1px solid #916848;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #916848;
+}
+
+button[type="submit"] {
+  background-color: #916848;
+  width: 100%;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: .8rem 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #7a5737;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}

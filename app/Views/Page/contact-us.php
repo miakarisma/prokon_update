@@ -10,7 +10,7 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="../css/contact-style.css">
+    <link rel="stylesheet" href="/css/contact-style.css">
 </head>
 <body>
     
@@ -21,11 +21,11 @@
         <nav class="navbar">
             <ul class="nav-list">
                 
-                <li class="nav-item"><a href="store.html"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
-                <li class="nav-item"><a href="project.html"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
-                <li class="nav-item"><a href="services.html"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
+            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
+                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
+                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
                 <li class="nav-item nav-item-image">
-                <a href="../index.html">
+                <a href="/page">
                   <img
                   alt="logo-madju"
                   class="logo-madju"
@@ -40,9 +40,14 @@
                   <!-- </div> -->
                 </a>
                 </li>
-                <li class="nav-item"><a href="about-us.html"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
-                <li class="nav-item"><a href="contact-us.html"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
-                <li class="nav-item"><a href="login.html"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
+                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
+                <?php if (!session('id')) { ?>
+                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <?php } 
+                    else { ?>
+                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                <?php } ?>
               </ul>
         </nav>
 

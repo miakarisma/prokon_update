@@ -21,11 +21,11 @@
         <nav class="navbar">
             <ul class="nav-list">
                 
-                <li class="nav-item"><a href="page/store.html"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
-                <li class="nav-item"><a href="/project"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
-                <li class="nav-item"><a href="page/services.html"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
+            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" />Store</a></li>
+                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" />Projects</a></li>
+                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" />Services</a></li>
                 <li class="nav-item nav-item-image">
-                <a href="index.html">
+                <a href="/page">
                   <img
                   alt="logo-madju"
                   class="logo-madju"
@@ -40,9 +40,14 @@
                   <!-- </div> -->
                 </a>
                 </li>
-                <li class="nav-item"><a href="/about"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
-                <li class="nav-item"><a href="page/contact-us.html"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
-                <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" />About Us</a></li>
+                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" />Contact Us</a></li>
+                <?php if (!session('id')) { ?>
+                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign In</a></li>
+                <?php } 
+                    else { ?>
+                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" />Sign Out</a></li>
+                <?php } ?>
               </ul>
         </nav>
 
@@ -146,21 +151,22 @@
     <h1 class="heading"> our <span> projects</span></h1>
 
     <div class="box-container">
-
+    <?php foreach ($project as $data) : ?>
         <div class="box">
             <div class="image">
-                <img src="images/blog-1.jpg" alt="">
+                <img src="/img/<?= $data['image']?>" alt="">
             </div>
             <div class="content">
-                <h3>budget friendly prices</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquid quos quibusdam suscipit tempora.</p>
+                <h3><?= $data['name'];?></h3>
+                <p><?= $data['description'];?></p>
                 <a href="#" class="btn"> read more</a>
                 <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 5th july, 2022 </a>
+                    <a href="#"> <i class="fas fa-calendar"></i> <?= $data['date'];?> </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
             </div>
         </div>
+    <?php endforeach;?>
 
         <div class="box">
             <div class="image">
@@ -238,20 +244,14 @@
     <section class="product" id="product">
 
         <h1 class="heading" id="heading">our <span> products</span></h1>
-        <?php 
-            if (session('id_user')) {
-                echo session('id_user');
-            }
-        ?>
 
         <div class="box-container">
-
-            <?php foreach ($produk as $data) : ?>
+        <?php foreach ($product as $data) : ?>
             <div class="box">
-                <a href="/produk/delete/<?= $data['id']?>" class="fas fa-heart"></a>
-                <a href="/produk/edit/<?= $data['id']?>" class="fas fa-eye"></a>
-                <img src="/img/<?= $data['gambar']?>" alt="">
-                <h3><?= $data['nama_produk'];?></h3>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="/img/<?= $data['image']?>" alt="">
+                <h3><?= $data['name'];?></h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -259,10 +259,10 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price"><?= $data['harga'];?> <span>$21.99</span></div>
-                <a href="/login/isLogged_in" class="btn">add to cart</a>
+                <div class="price"><?= $data['price'];?></div>
+                <a href="#" class="btn">add to cart</a>
             </div>
-            <?php endforeach;?>
+        <?php endforeach;?>
 
         </div>
 

@@ -61,7 +61,7 @@
             <!-- End TextField Password -->
             
             <!-- Start Check Keep Login -->
-            <div class="check">
+            <!-- <div class="check">
               <div class="keep-me">
                 <div class="material-symbolscheck-box">
                   <label>
@@ -74,16 +74,16 @@
                 </p>
               </div>
               <!-- Start forgot password -->
-              <a href="index.html">
+              <!-- <a href="index.html">
                 <p class="forgot-password">Forgot password?</p>
-              </a>
+              </a> -->
               <!-- End forgot password -->
-            </div>
-          </div>
+            <!-- </div>
+          </div> --> -->
           <!-- End Check Keep Login -->
 
           <!-- Button Login -->
-          <a href="index.html">
+          <a href="#">
             <button class="login-bar" type="submit">
               <p style="color: white;">Login</p>
             </button>
