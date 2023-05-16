@@ -18,18 +18,18 @@
     </a>
   </div>
   <!-- back button -->
-  <h1>our Team</h1>
+  <h1>Our Team</h1>
         <?= \Config\Services::validation()->listErrors();?>
 
         <form action="/ourTeam/save" method="POST" enctype="multipart/form-data">
             <?= csrf_field() ?>
-            <label for="image" id="image" class="img-label">OurTeam Image</label>
+            <label for="image" id="image" class="img-label">Image</label>
             <img src="/img/default.jpg" width="200px" class="img-preview">
             <input type="file" id="image" name="image" accept="image/*" class="img-input" onChange="prevImg()"/>
     <p class="judul-text">Nama</p>
-    <input name="name" type="text" placeholder="Text data yang sekarang">
+    <input name="name" type="text" placeholder="Isikan dengan nama">
     <p class="judul-text">Posisi</p>
-    <input name="position" type="text" placeholder="Text data yang sekarang">
+    <input name="position" type="text" placeholder="Isikan posisi pekerja">
     <input type="submit" value="Submit">
   </form>
   <script src="../../js/scripts.js"></script>

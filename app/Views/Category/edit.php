@@ -31,7 +31,7 @@
             <input type="file" id="image" name="image" class="img-input" accept="image/*" onChange="prevImg()"/>
             <br/>
 
-            <label for="">tname</label>
+            <label for="">name</label>
             <br/>
             <input type="text" name="name" size="50" value="<?= $category['name'];?>"/>
             <br/>

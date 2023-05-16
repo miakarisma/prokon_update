@@ -13,7 +13,7 @@
 <body>
   <!-- back button -->
   <div class="circle">
-    <a href="table-about.html" class="back-button">
+    <a href="/aboutUs" class="back-button">
       <i class="fa fa-arrow-left"></i>
     </a>
   </div>

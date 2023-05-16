@@ -50,14 +50,13 @@ class Login extends BaseController
                 }
             }
             else {
-                dd($password);
-                session()->setFlashdata('error', 'Username & Password Salah');
+                session()->setFlashdata('error', '<span style="font-size: 18px; color:red">Username & Password Salah</span>');
                 return redirect()->back();
             }
         }
         else {
             
-            session()->setFlashdata('error', 'Username & Password Salah');
+            session()->setFlashdata('error', '<span style="font-size: 18px; color:red">Username & Password Salah</span>');
             return redirect()->back();
         }
     }
@@ -107,37 +106,53 @@ class Login extends BaseController
             // echo "aaa";
             return view('Page/sign-up');
         }
+    }
 
+    public function forgot()
+    {
+        // $email_user = $this->request->getVar('email');
+        
+        // $data = [
+        //     'account' => $this->userModel->getUserByEmail($email_user)
+        // ];
+
+        return view('page/forgotpass');
     }
 
     public function forgotPass()
     {
         $email_user = $this->request->getVar('email');
+        $newpass = $this->request->getVar('new-password');
+        $retypepass = $this->request->getVar('retype-password');
         
-        $data = [
-            'account' => $this->userModel->getUserByEmail($email_user)
-        ];
-
-        // return view('product/edit', $data);
+        $data = $this->userModel->getUserByEmail($email_user);
+        
 
         $rules = [
-            // 'id_user' => 'required',  
-            // 'email' => 'required|min_length[3]|max_length[45]', 
-            // 'fullname' => 'required|min_length[3]|max_length[45]',
-            'password' => 'required|min_length[8]|max_length[20]' 
-            // 'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
+            'new-password' => 'required|min_length[8]|max_length[20]',
+            'retype-password' => 'required|min_length[8]|max_length[20]'
         ];
         if($this->request->is('post') && $this->validate($rules))
         {
-            $this->productModel->save([
-                'username' => $data['name'],
-                'email' => $data['email'],
-                'password' => $this->request->getVar('password'),
-                'role' => 2,
-            ]);
-            return redirect()->to(base_url('/ecommerce'));
+            if ($newpass != $retypepass) {
+                echo '<script>alert("Warning: Password tidak cocok!");</script>';
+                return redirect()->back();
+            }
+            else
+            {
+                $this->userModel->save([
+                    'id' => $data['id'],
+                    'username' => $data['username'],
+                    'email' => $data['email'],
+                    'password' => password_hash($newpass, PASSWORD_DEFAULT),
+                    'role' => 2,
+                ]);
+                echo '<script>alert("Password berhasil diubah!");</script>';
+                return redirect()->to(base_url('/login'));
+            } 
         }else{
-            return redirect()->to('/account/edit/'.$data['id']);
+            // return redirect()->to('/account/edit', $data);
+            return view('page/forgotpass', $data);
         }
     }
 

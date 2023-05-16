@@ -35,6 +35,17 @@
             <label for="">Description</label>
             <textarea name="description" id="" cols="30" rows="10"><?= $product['description']; ?></textarea>
             <br/>
+
+            <select name="category_id">
+              <?php
+
+                  foreach ($category as $data) {
+                      echo "<option value='{$data['id']}' ".($product['category_id'] == $data['id'] ? 'selected' : '') .">{$data['name']}</option>";
+                  }
+              ?>
+          </select>
+            <br/>
+
             <label for="image" id="image" class="img-label">Product Image</label>
             <img src="/img/<?= $product['image'] ?>" width="200px" class="img-preview">
             <input type="file" id="image" name="image" class="img-input" onChange="prevImg()"/>

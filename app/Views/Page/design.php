@@ -131,45 +131,7 @@
     
     <!-- room -->
 
-     <!-- room -->
-     <section class="room">
-        <div class="room-container">
-            <?php foreach ($room as $data) : ?>
-                <div class="column content-column">
-                    <img src="/img/<?= $data['image']; ?>" class="content-column" id="left-column"/>
-                    <div class="overlay">
-                        <div class="text">
-                            <p><?= $data['text_span']; ?></p>
-                            <h2><?= $data['name']; ?></h2>
-                            <a href="/userRoomDesc/<?= $data['id']; ?>" class="btn">add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach;?>
-          </div>
-    </section>
-    
-    <!-- room -->
-
-     <!-- room -->
-     <section class="room">
-        <div class="room-container">
-            <?php foreach ($room as $data) : ?>
-                <div class="column content-column">
-                    <img src="/img/<?= $data['image']; ?>" class="content-column" id="left-column"/>
-                    <div class="overlay">
-                        <div class="text">
-                            <p><?= $data['text_span']; ?></p>
-                            <h2><?= $data['name']; ?></h2>
-                            <a href="/userRoomDesc/<?= $data['id']; ?>" class="btn">add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach;?>
-        </div>
-    </section>
- 
-    <!-- room -->
+     
 
     <!-- latest design -->
 
@@ -195,25 +157,14 @@
 
         <div class="box-container">
 
-        <?php foreach ($product as $i => $data) :  if($i>2) break?>
+        <?php foreach ($project as $i => $data) :  if($i>2) break?>
             <form action="/cart/add" method="POST">
                 <?= csrf_field() ?>
-                <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
-                <input type="hidden" name="product_id" value="<?= $data['id']?>">
             <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
-                <img src="/img/<?= $data['image']?>" alt="">
-                <h3><?= $data['name'];?></h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="price"><?= $data['price'];?></div>
-                <input type="submit" value="add to cart" class="btn" name="submit_btn">
+            
+                <a href="/userProjectDesc/<?= $data['id']; ?>"><img src="/img/<?= $data['image']?>" alt=""></a>
+               
+                <!-- <input type="submit" value="add to cart" class="btn" name="submit_btn"> -->
             </div>
             </form>
         <?php endforeach;?>

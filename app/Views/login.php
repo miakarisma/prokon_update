@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="/css/login_style.css">
     <title>Login</title>
 </head>
 <body>
+
     <div class="sign-in">
         <div class="background">
+          <!-- back button -->
+          <div class="circle">
+            <a href=<?=base_url('/')?> class="back-button">
+              <i class="fa fa-arrow-left"></i>
+            </a>
+          </div>
+          <!-- back button -->
           <a href="/">
             <img
             alt=""
@@ -25,6 +36,13 @@
           </p>
         </div>
         <div class="flex-wrapper-four">
+                  <!-- back button -->
+          <div class="circle-login">
+            <a href=<?=base_url('/')?> class="back-button">
+              <i class="fa fa-arrow-left"></i>
+            </a>
+          </div>
+          <!-- back button -->
           <div class="login">
             <div class="title">
               <p class="l-ogin">Login</p>
@@ -73,21 +91,19 @@
                   Keep me logged in
                 </p>
               </div> -->
-              Start forgot password -->
+              <!-- Start forgot password -->
               <a href="/forgot">
                 <p class="forgot-password">Forgot password?</p>
               </a>
               <!-- End forgot password -->
             </div>
-          </div> -->
+          </div>
           <!-- End Check Keep Login -->
 
           <!-- Button Login -->
-          <a href="#">
             <button class="login-bar" type="submit">
               <p style="color: white;">Login</p>
             </button>
-          </a>
         </form>
         <!-- End form -->
 

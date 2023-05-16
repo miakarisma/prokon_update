@@ -33,7 +33,7 @@
             <label for="">Date</label>
             <input type="date" name="date"/>
             <br/>
-            <label for="image" id="image" class="img-label">Product Image</label>
+            <label for="image" id="image" class="img-label">Project Image</label>
             <img src="/img/default.jpg" width="200px" class="img-preview">
             <input type="file" id="image" name="image" class="img-input" accept="image/*" onChange="prevImg()"/>
             <br/><br/>

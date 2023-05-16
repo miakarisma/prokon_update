@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
 use App\Models\ProductModel;
+use App\Models\CartModel;
+use App\Models\CategoryModel;
 
 class Product extends BaseController
 {
@@ -8,6 +10,7 @@ class Product extends BaseController
     public function __construct()
     {
         $this->productModel = new ProductModel();
+        $this->categoryModel = new CategoryModel();
     }
 
     public function index()
@@ -20,7 +23,9 @@ class Product extends BaseController
 
     public function create()
     {
-        return view('product/create');
+        $categoryModel = new CategoryModel();
+        $data['category'] = $categoryModel->getAllCategory();
+        return view('product/create', $data);
     }
 
     public function save()
@@ -29,6 +34,7 @@ class Product extends BaseController
             'name' => 'required|min_length[3]|max_length[45]',  
             'price' => 'required', 
             'description' => 'required', 
+            'category_id' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -45,6 +51,7 @@ class Product extends BaseController
                 'name' => $this->request->getVar('name'),
                 'price' => $this->request->getVar('price'),
                 'description' => $this->request->getVar('description'),
+                'category_id' => $this->request->getVar('category_id'),
                 'image' => $imageName,
             ]);
 
@@ -60,14 +67,20 @@ class Product extends BaseController
         if($product['image'] != 'default.jpg'){
             unlink('img/' . $product['image']);
         }
+        
+        $cartModel = new CartModel();
+        $cartModel->where('product_id', $id)->delete();
 
         $this->productModel->delete($id);
         return redirect()->to(base_url('/ecommerce'));
     }
 
     public function edit($id){
+        $categoryModel = new CategoryModel();
+        // $data['category'] = $categoryModel->getAllCategory();
         $data = [
-            'product' => $this->productModel->getProductById($id)
+            'product' => $this->productModel->getProductById($id),
+            'category' => $categoryModel->getAllCategory()
         ];
 
         return view('product/edit', $data);
@@ -78,6 +91,7 @@ class Product extends BaseController
             'name' => 'required|min_length[3]|max_length[45]',  
             'price' => 'required',
             'description' => 'required', 
+            'category_id' => 'required', 
             'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/jpg,image/jpeg,image/png]',
         ];
         if($this->request->is('post') && $this->validate($rules))
@@ -99,6 +113,7 @@ class Product extends BaseController
                 'name' => $this->request->getVar('name'),
                 'price' => $this->request->getVar('price'),
                 'description' => $this->request->getVar('description'),
+                'category_id' => $this->request->getVar('category_id'),
                 'image' => $imageName,
             ]);
             return redirect()->to(base_url('/ecommerce'));

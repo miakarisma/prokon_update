@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="../../css/fp.css">
+  <link rel="stylesheet" href="../../css/fpindex.css">
   <title>Front page</title>
 </head>
 <body>
@@ -36,29 +36,37 @@
     $i = 0;
     foreach ($frontPage as $data) : 
         $i++;
-    ?>
+        ?>
         <tr>
-            <td><?=$i?></td>
-            <td><img src="/img/<?= $data['image']?>" alt="Gambar 1"></td>
-            <td><?= $data['text_header'];?></td>
-            <td><?= $data['text_span'];?></td>
-            <td>
-        <p><a href="frontPage/edit/<?= $data['id']?>"><button class="edit-btn">Edit</button></a></p>
-        <a href="/frontPage/delete/<?= $data['id']?>"><button class="delete-btn">Delete</button></a>
-            
-            
-            </td>
+          <td data-label="No"><?=$i?></td>
+          <td data-label="Gambar"><img src="/img/<?= $data['image']?>" alt="Gambar"></td>
+          <td data-label="Text Header"><?= $data['text_header'];?></td>
+          <td data-label="Text Span"><?= $data['text_span'];?></td>
+          <td data-label="Actions">
+          <a href="frontPage/edit/<?= $data['id']?>">
+          <i class="fas fa-edit"></i>
+          </a>
+          <a href="/frontPage/delete/<?= $data['id']?>">
+          <i class="fas fa-trash-alt"></i>
+          </a>
+          </td>
         </tr>
+
     <?php endforeach;?>
+
         
         <!-- Add more rows as needed -->
         </tbody>
     </table>
     <!-- table -->
 
-    <!-- button add -->
-    <a href="/frontPage/create"><button class="btn-add">Add</button></a>
-    <!-- button add -->
+    <!-- button container -->
+    <div class="button-container">
+      <!-- button add -->
+      <a href="/frontPage/create"><button class="btn-add">Add</button></a>
+      <!-- button add -->
+    </div>
+
     </section>
 
   <script src="/js/scripts.js"></script>

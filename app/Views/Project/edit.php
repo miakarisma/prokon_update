@@ -25,7 +25,7 @@
         <!-- A Naha di dieu agenda sanes project?  angger teh. dipaksa mabar hela teh :( Ai ieu value na teu acan di set? te apal, nuturkeun si ibu--> 
             <?= csrf_field() ?>
             <input type="hidden" name="imagePrevName" value="<?= $project['image'] ?>">
-            <label for="">Product Name</label>
+            <label for="">Project Name</label>
             <br/>
             <input type="text" name="name" size="50" value="<?= $project['name'];?>"/>
             <br/>
@@ -35,7 +35,7 @@
             <label for="">Date</label>
             <input type="date" name="date" value="<?= $project['date']; ?>"/>
             <br/>
-            <label for="image" id="image" class="img-label">Product Image</label>
+            <label for="image" id="image" class="img-label">Project Image</label>
             <img src="/img/<?= $project['image'] ?>" width="200px" class="img-preview">
             <input type="file" id="image" name="image" class="img-input" onChange="prevImg()"/>
             <br/><br/>

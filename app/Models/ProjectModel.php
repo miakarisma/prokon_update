@@ -12,6 +12,9 @@ class ProjectModel extends Model{
     public function getProjectById($id){
         return $this->where(['id' => $id])->first();
     }
+    public function getAllProjectDesc(){
+        return $this->orderBy('id', 'desc')->findAll();
+    }    
 }
 
 ?>
