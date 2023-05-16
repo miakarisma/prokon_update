@@ -17,7 +17,6 @@
     /* font-family: 'Poppins', sans-serif; */
     text-decoration: none;
     transition: .2s linear;
-    text-transform: capitalize;
   }
 
   html{
@@ -44,22 +43,51 @@ a{
 }
 /* End non-class */
 
+
 .sign-in {
-    background-color: rgba(255, 255, 255, 1);
-    padding: 0 568px 0 0;
-    position: relative;
-  }
-  .background {
-    background: linear-gradient(
-        rgba(217, 217, 217, 0.85),
-        rgba(217, 217, 217, 0.85)
-      ),
-      url("https://static.overlay-tech.com/assets/a74372d2-62eb-462a-b711-c630c1c242de.png");
-    background-size: 100% 100%;
-    background-position: center;
-    padding: 154px 186px 491px 116px;
-    position: relative;
-  }
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0 568px 0 0;
+  position: relative;
+}
+
+.background {
+  background: linear-gradient(
+    rgba(217, 217, 217, 0.85),
+    rgba(217, 217, 217, 0.85)
+  ), url("https://static.overlay-tech.com/assets/a74372d2-62eb-462a-b711-c630c1c242de.png");
+  background-size: 100% 100%;
+  background-position: center;
+  padding: 154px 186px 491px 116px;
+  position: relative;
+}
+
+/* back button */
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+}
+
+.circle-login{
+  display: none;
+}
+
+.fa-arrow-left {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+}
+/* back button */
+
+
+
   .rectangle-27 {
     width: 570px;
     height: 396px;
@@ -313,8 +341,20 @@ a{
     display: none;
   }
 
-  
-  
+  .circle-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 10000;
+  }
+
   .rectangle-27 {
     width: 100%;
     height: auto;
@@ -341,6 +381,10 @@ a{
     letter-spacing: 1.8px;
   }
 
+  .login-bar{
+    padding: 22px 150px;
+  }
+
   .please-enter-your-login-details-to-sign{
     font-size: 14px;
     letter-spacing: 1.2px;
@@ -352,7 +396,7 @@ a{
   }
 
   .rectangle-28 {
-    width: 100%;
+    width: 300px;
     margin-bottom: 20px;
   }
 }

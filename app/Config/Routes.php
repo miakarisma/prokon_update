@@ -38,6 +38,7 @@ $routes->get('/login/create', 'Login::create');
 $routes->post('/login/save', 'Login::save');
 $routes->get('/login/isLogged_in', 'Login::isLogged_in');
 
+// admin
 $routes->get('/product', 'Product::index');
 $routes->get('/product/create', 'Product::create');
 $routes->post('/product/save', 'Product::save');
@@ -107,6 +108,7 @@ $routes->post('/workshop/save', 'Workshop::save');
 $routes->get('/workshop/delete/(:num)', 'Workshop::delete/$1');
 $routes->get('/workshop/edit/(:num)', 'Workshop::edit/$1');
 $routes->post('/workshop/update/(:num)', 'Workshop::update/$1');
+// end admin
 
 $routes->get('/cart', 'Cart::index');
 $routes->post('/cart/add', 'Cart::add');
@@ -122,11 +124,9 @@ $routes->get('/', 'User::index');
 $routes->post('/login/process', 'Login::process');
 $routes->get('/logout', 'Login::logout');
 
-
 $routes->get('/admin', 'Admin::index');
 
 // rout user
-
 $routes->get('/userProject', 'User::project');
 $routes->get('/userStore', 'User::ecommerce');
 $routes->get('/userService', 'User::service');
@@ -135,11 +135,18 @@ $routes->get('/userContact', 'User::contactUs');
 $routes->get('/userDesign', 'User::design');
 $routes->get('/userWorkshop', 'User::workshop');
 
+$routes->get('/userStore/cat', 'User::cat');
+
 $routes->get('/userProjectDesc/(:num)', 'User::projectDesc/$1');
 $routes->get('/userRoomDesc/(:num)', 'User::roomDesc/$1');
 $routes->get('/userProductDesc/(:num)', 'User::productDesc/$1');
 
 $routes->post('contact/orderProduct/', 'contact::orderProduct');
+$routes->post('/login/forgotPass', 'Login::forgotPass');
+$routes->get('/forgot', 'Login::forgot');
+
+// routes
+$routes->match(['get', 'post'], 'email', 'SendEmail::index');
 
 
 /*

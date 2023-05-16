@@ -12,6 +12,9 @@ class CategoryModel extends Model{
     public function getCategoryById($id){
         return $this->where(['id' => $id])->first();
     }
+    public function getAllCategoryDesc(){
+        return $this->orderBy('id', 'desc')->findAll();
+    }   
 }
 
 ?>

@@ -1,0 +1,72 @@
+/* Add some basic styling to the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+}
+
+/* Style the back button */
+.circle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #293242;
+    color: #fff;
+    text-align: center;
+}
+
+/* Style the page heading */
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: #293242;
+    font-size: 36px
+}
+
+h3 {
+    margin-top: 20px;
+    color: #916848;
+    font-size: 24px
+}
+
+form {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1)
+}
+
+.textarea-container {
+    display: flex;
+}
+
+textarea {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1)
+}
+
+input[type="submit"] {
+    display: block;
+    margin: auto;
+    padding: 12px 20px;
+    background-color: #293242;
+    color: #EEEEEE;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer
+}

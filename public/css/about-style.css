@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
+@keyframes slide-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 :root{
     --main-color:#1f232a;
     --primary-color: #ce962e;
@@ -133,16 +142,15 @@
      width: 100px;
      height: 100px;
    }
- 
+
    .half-circle {
      position: absolute;
      bottom: -67px;
      left: 50.67%;
-     transform: translateX(-50%);
+     transform: translateX(20%);
      width: 250px;
      height: 70px;
-     /* border-radius: 0 0 100px 100px; */
-     /* background-color: #f2f2f2; */
+     animation: slide-in 0.5s ease-out forwards;
    }
  
  .header .icons div{

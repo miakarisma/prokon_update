@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
+@keyframes slide-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 :root{
    --main-color:#1f232a;
    --primary-color: #ce962e;
@@ -138,9 +147,10 @@ section{
     position: absolute;
     bottom: -67px;
     left: 50.67%;
-    transform: translateX(-50%);
+    transform: translateX(-190%);
     width: 250px;
     height: 70px;
+    animation: slide-in 0.5s ease-out forwards;
     /* border-radius: 0 0 100px 100px; */
     /* background-color: #f2f2f2; */
   }
@@ -166,13 +176,19 @@ section{
     background: var(--bg);
 }
 
-.project .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 1.5rem;
-}
+.project .box-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .project .box:last-child {
+    margin-right: 0;
+  }
 
 .project .box-container .box{
+    flex: 0 0 calc(33.33% - 1.5rem);
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
     border: 0.1rem solid var(--main-color);
     box-shadow: var(--box-shadow);
 }
@@ -367,6 +383,17 @@ section{
     .map-container iframe{
         width: 150px; 
         height: 100px; 
+    }
+
+    .project .box-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .project .box-container .box{
+        border: 0.1rem solid var(--main-color);
+        box-shadow: var(--box-shadow);
     }
 }
 

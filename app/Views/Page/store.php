@@ -99,7 +99,7 @@
               </a>
               <div class="all-line"></div>           
             </div>
-            <?php foreach ($category as $data) : ?>
+            <?php foreach ($category as $i => $data) : if($i>2)break;?>
             <div class="category-column" id="category-image">
               <img src="/img/<?= $data['image']; ?>" alt="Image 1">
               <h4><?= $data['name']; ?></h4>
@@ -147,7 +147,6 @@
                 <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
                 <input type="hidden" name="product_id" value="<?= $data['id']?>">
             <div class="box">
-                <a href="#" class="fas fa-heart"></a>
                 <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
                 <img src="/img/<?= $data['image']?>" alt="">
                 <h3><?= $data['name'];?></h3>
@@ -166,6 +165,7 @@
         </div>
 
     </section>
+    <h1 id="kolom">aaaaaaa</h1>
 
     <!-- product -->
 
@@ -175,7 +175,6 @@
     <footer class="footer" id="contact">
         <div class="box-container">
             <div class="box">
-                <h3>Location</h3>
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56400419367!2d107.56075552119081!3d-6.90344237941637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1682763058950!5m2!1sen!2sid" 
                     width="250" 
@@ -277,9 +276,33 @@
         <!-- Copyright -->
     </footer>
     <!-- footer -->
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- custom js -->
-    <script src="../js/script.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/jquery-3.7.0.min.js"></script>
+    <script>
+        getProductByCat();
+        function getProductByCat(){
+            $.ajax({
+                type: 'GET',
+                url: '<?php echo base_url()."userStore/cat" ?>',
+                dataType: 'json',
+                contentType: 'json',
+                success: function(data){
+                    console.log(data);
+                    var productByCat="";
+                    for(var i=0;i<data.length;i++){
+                        productByCat+= data[i].id+" ";
+                        productByCat+= data[i].name+" ";
+                        productByCat+= data[i].price+" ";
+                    }
+                    $('#kolom').html(productByCat);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -18,14 +18,14 @@
 
     <section class="header">
         
-        <nav class="navbar">
+    <nav class="navbar">
             <ul class="nav-list">
                 
-            <li class="nav-item"><a href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" /> Store</a></li>
-                <li class="nav-item"><a href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" /> Projects</a></li>
-                <li class="nav-item"><a href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" /> Services</a></li>
+            <li class="nav-item"><a id="store-nav" href="/userStore"><img alt="" src="https://static.overlay-tech.com/assets/7a7cbf53-98ff-4420-819f-4a3d30d082f7.svg" /> Store</a></li>
+                <li class="nav-item"><a id="projects-nav" href="/userProject"><img alt="" src="https://static.overlay-tech.com/assets/8c2308f0-8860-45e1-974e-20ce2012ee5c.svg" /> Projects</a></li>
+                <li class="nav-item"><a id="service-nav" href="/userService"><img alt="" src="https://static.overlay-tech.com/assets/983ca7e7-ad35-4572-8cae-75b535818c10.svg" /> Services</a></li>
                 <li class="nav-item nav-item-image">
-                <a href="/page">
+                <a id="logo-nav" href="/page">
                   <img
                   alt="logo-madju"
                   class="logo-madju"
@@ -40,13 +40,13 @@
                   <!-- </div> -->
                 </a>
                 </li>
-                <li class="nav-item"><a href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" /> About Us</a></li>
-                <li class="nav-item"><a href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" /> Contact Us</a></li>
+                <li class="nav-item"><a id="about-nav" href="/userAbout"><img alt="" src="https://static.overlay-tech.com/assets/f7a595d3-9b53-46d8-9f92-b2f21381fc0e.svg" /> About Us</a></li>
+                <li class="nav-item"><a id="contact-nav" href="/userContact"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/f03eb309-7334-4f10-845a-0976efcbe014.svg" /> Contact Us</a></li>
                 <?php if (!session('id')) { ?>
-                    <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
+                    <li class="nav-item"><a id="login-nav" href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
                 <?php } 
                     else { ?>
-                        <li class="nav-item"><a href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
+                        <li class="nav-item"><a id="login-nav" href="/logout"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign Out</a></li>
                 <?php } ?>
               </ul>
         </nav>
@@ -103,9 +103,9 @@
             <!-- </div> -->
 
             <div class="content">
-                <span>welcome to our shop</span>
-                <h3>we make your home more astonishing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque quas distinctio culpa quam voluptatem omnis libero saepe nisi dolores veniam sequi odit, unde dolorem eos reiciendis repellendus pariatur ducimus corporis?</p>
+                <span><?= $aboutUs[0]['text_span'];?></span>
+                <h3><?= $aboutUs[0]['text_header'];?></h3>
+                <p><?= $aboutUs[0]['text_paragraph'];?></p>
                 <a href="page/about-us.html" class="btn">read more</a>
             </div>
 
@@ -130,7 +130,7 @@
             </div>
             <div class="content">
                 <h3><?= $data['name'];?></h3>
-                <p><?= $data['description'];?></p>
+                <p><?= substr($data['description'], 0, 150); ?> ...</p>
                 <a href="/userProjectDesc/<?= $data['id']; ?>" class="btn"> read more</a>
                 <div class="icons">
                     <a href="#"> <i class="fas fa-calendar"></i> <?= $data['date'];?> </a>
@@ -157,14 +157,14 @@
         <div class="box-container">
 
             <div class="box">
-                <img src="../images/service-1.png" alt="">
+                <img src="/images/service-1.png" alt="">
                 <h3>Design Interior</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
                 <a href="/userDesign" class="btn"> read more</a>
             </div>
 
             <div class="box">
-                <img src="../images/service-2.png" alt="">
+                <img src="/images/service-2.png" alt="">
                 <h3>Workshop</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem sed impedit.</p>
                 <a href="/userWorkshop" class="btn"> read more</a>
@@ -321,5 +321,6 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- custom js -->
     <script src="js/script.js"></script>
+    <script src="/js/script-navbar.js"></script>
 </body>
 </html>

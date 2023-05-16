@@ -1,0 +1,140 @@
+/* Add some basic styling to the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+}
+
+/* Style the back button */
+.circle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #293242;
+    color: #fff;
+    text-align: center;
+}
+
+/* Style the page heading */
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: #293242;
+    font-size: 36px
+}
+
+/* Style the table data section */
+.table-data {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
+}
+
+h2 {
+    margin-top: 20px;
+    color: #916848;
+    font-size: 24px
+}
+
+.table-container {
+    margin-top: 20px
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px
+}
+
+.table-judul {
+    flex-basis: 30%;
+    color: #293242
+}
+
+.table-column {
+    flex-basis: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1)
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px
+}
+
+.btn-add {
+    padding: 12px 20px;
+    background-color: #293242;
+    color: #EEEEEE;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd
+}
+
+th,
+td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #293242;
+    color: white
+}
+
+th:nth-child(5) {
+    width: 80px
+}
+
+/* Style the images */
+img {
+    width: 70px;
+    height: auto
+}
+
+/* Style the icons */
+td a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #293242
+}
+
+td a:last-child {
+    margin-right: 0
+}
+
+.fa-edit {
+    color: #916848
+}
+
+.fa-trash-alt {
+    color: #293242
+}

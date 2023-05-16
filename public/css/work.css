@@ -405,7 +405,8 @@ section{
 }
 
 .product .box-container .box img{
-    height: 20rem;
+    width: 22rem;
+    height: 22rem;
     margin: 1rem 0;
 }
 

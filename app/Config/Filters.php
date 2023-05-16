@@ -71,6 +71,26 @@ class Filters extends BaseConfig
             [
                 '/cart', 
                 '/cart/*',
+                '/product',
+                '/product/*',
+                '/project',
+                '/project/*',
+                '/frontPage',
+                '/frontPage/*',
+                '/store',
+                '/store/*',
+                '/category',
+                '/category/*',
+                '/room',
+                '/room/*',
+                '/aboutUs',
+                '/aboutUs/*',
+                '/ourTeam',
+                '/ourTeam/*',
+                '/contactUs',
+                '/contactUs/*',
+                '/workshop',
+                '/workshop/*',
             ]
         ]
     ];

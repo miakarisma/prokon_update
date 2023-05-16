@@ -62,6 +62,31 @@ a{
     position: relative;
   }
 
+  /* back button */
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+}
+
+.circle-login{
+  display: none;
+}
+
+.fa-arrow-left {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+}
+/* back button */
+
   .rectangle-27 {
     width: 570px;
     height: 396px;
@@ -93,7 +118,7 @@ a{
     padding: 161px 65px 160px 59px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     position: absolute;
     left: 0;
     top: 0;
@@ -104,7 +129,7 @@ a{
     margin-left: 5px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .title {

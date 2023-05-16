@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="/css/ab.css">
+  <link rel="stylesheet" href="/css/abindex.css">
   <title>About Us</title>
 </head>
 <body>
@@ -47,9 +47,12 @@
       </div> -->
     </div>
   </div>
-    <!-- button edit -->
-    <a href="/aboutUs/edit/<?= $data['id']?>"><button class="btn-add">Edit</button></a>
-    <!-- button edit -->
+     <!-- button container -->
+      <div class="button-container">
+        <!-- button edit -->
+        <a href="/aboutUs/edit/<?= $data['id']?>"><button class="btn-add">Edit</button></a>
+        <!-- button edit -->
+      </div>
   <?php endforeach;?>
   
       
@@ -78,8 +81,15 @@
             <td><?= $data['name'];?></td>
             <td><?= $data['position'];?></td>
             <td>
-        <p><a href="/ourTeam/edit/<?= $data['id']?>"><button class="edit-btn">Edit</button></a></p>
-        <a href="/ourTeam/delete/<?= $data['id']?>"><button class="delete-btn">Delete</button></a>
+        <!-- edit icon -->
+              <a href="/ourTeam/edit/<?= $data['id']?>">
+                <i class="fas fa-edit"></i>
+              </a>
+
+              <!-- delete icon -->
+              <a href="/ourTeam/delete/<?= $data['id']?>">
+                <i class="fas fa-trash-alt"></i>
+              </a> 
             
             
             </td>
@@ -91,9 +101,12 @@
     </table>
     <!-- table image-->
 
-    <!-- button edit -->
-    <a href="/ourTeam/create"><button class="btn-add">Add</button></a>
-    <!-- button edit -->
+    <!-- button container -->
+    <div class="button-container">
+      <!-- button add -->
+      <a href="/ourTeam/create"><button class="btn-add">Add</button></a>
+      <!-- button add -->
+    </div>
 
     <!-- table -->
     </section>

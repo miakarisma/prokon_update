@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
+@keyframes slide-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 :root{
    --main-color:#1f232a;
    --primary-color: #ce962e;
@@ -41,7 +50,7 @@ html::-webkit-scrollbar-thumb{
 
 section{
     padding: 3rem 9%;
-}
+  }
 
 .heading{
     text-align: center;
@@ -104,7 +113,7 @@ section{
     color: var(--black);
 }
 
-.header .navbar a:hover{
+.header .navbar a:hover {
     color: var(--primary-color);
 }
 
@@ -118,6 +127,10 @@ section{
     width: 100%;
   }
   
+  .nav-item:not(.nav-item-image) a:hover .half-circle {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
   .nav-item {
     flex: 1;
     text-align: center;
@@ -141,8 +154,7 @@ section{
     transform: translateX(-50%);
     width: 250px;
     height: 70px;
-    /* border-radius: 0 0 100px 100px; */
-    /* background-color: #f2f2f2; */
+    animation: slide-in 0.5s ease-out forwards;
   }
 
 .header .icons div{

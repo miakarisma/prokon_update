@@ -48,3 +48,12 @@ function prevImg(){
       imagePreview.src = e.target.result;
   }
 }
+
+function displayCharacterCount(textareaId, countId, text) {
+  var maxLength = document.getElementById(textareaId).getAttribute("maxlength");
+  var currentLength = text.length;
+
+  // Update the character count
+  var countElement = document.getElementById(countId);
+  countElement.textContent = currentLength + "/" + maxLength;
+}

@@ -46,7 +46,7 @@ class Category extends BaseController
 
             return redirect()->to(base_url('/ecommerce'));
         }else{
-            return view('category/create');
+            return redirect()->back();
         }
 
     }

@@ -32,6 +32,8 @@ class User extends BaseController
 
     public function index()
     {
+        $aboutUsModel = new AboutUsModel();
+        $data['aboutUs'] = $aboutUsModel->getAllAboutUs();
         $productModel = new ProductModel();
         $data['product'] = $productModel->getAllProduct();
         $projectModel = new ProjectModel();
@@ -48,7 +50,7 @@ class User extends BaseController
         $frontPageModel = new FrontPageModel();
         $data['frontPage'] = $frontPageModel->getAllFrontPage();
         $categoryModel = new CategoryModel();
-        $data['category'] = $categoryModel->getAllCategory();
+        $data['category'] = $categoryModel->getAllCategoryDesc();
         $roomModel = new RoomModel();
         $data['room'] = $roomModel->getAllRoom();
         $productModel = new ProductModel();
@@ -119,8 +121,8 @@ class User extends BaseController
         $data['category'] = $categoryModel->getAllCategory();
         $roomModel = new RoomModel();
         $data['room'] = $roomModel->getAllRoom();
-        $productModel = new ProductModel();
-        $data['product'] = $productModel->getAllProduct();
+        $projectModel = new ProjectModel();
+        $data['project'] = $projectModel->getAllProjectDesc();
         $contactUsModel = new ContactUsModel();
         $data['contactUs'] = $contactUsModel->getAllContactUs();
 
@@ -154,5 +156,10 @@ class User extends BaseController
         $data['contactUs'] = $contactUsModel->getAllContactUs();
 
         echo view('page/desc/product', $data);
+    }
+    public function cat(){
+        $productModel = new ProductModel();
+        $data['product'] = $productModel->getAllProductDesc();
+        echo json_encode($data['product']);
     }
 }
