@@ -15,6 +15,9 @@ class ProductModel extends Model{
     public function getAllProductDesc(){
         return $this->orderBy('id', 'desc')->findAll();
     }    
+    public function getProductByCat($category_id){
+        return $this->where('category_id', $category_id)->findAll();
+    } 
 }
 
 ?>

@@ -135,7 +135,7 @@ $routes->get('/userContact', 'User::contactUs');
 $routes->get('/userDesign', 'User::design');
 $routes->get('/userWorkshop', 'User::workshop');
 
-$routes->get('/userStore/cat', 'User::cat');
+$routes->get('/userStore/cat/(:num)', 'User::cat/$1');
 
 $routes->get('/userProjectDesc/(:num)', 'User::projectDesc/$1');
 $routes->get('/userRoomDesc/(:num)', 'User::roomDesc/$1');
