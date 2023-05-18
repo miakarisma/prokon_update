@@ -92,7 +92,7 @@
                 </p>
               </div> -->
               <!-- Start forgot password -->
-              <a href="/forgot">
+              <a href="/resetpass">
                 <p class="forgot-password">Forgot password?</p>
               </a>
               <!-- End forgot password -->

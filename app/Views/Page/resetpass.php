@@ -42,31 +42,32 @@
         </div>
         <?= \Config\Services::validation()->listErrors();?>
         <!-- Start form -->
-        <form method="POST" action="<?= site_url('forgotpass') ?>">
+        <form method="POST" action="/login/forgotPass/<?= $account['id']; ?>">
+          
           <?= csrf_field() ?>
           <!-- Start TextField Email -->
-          <div class="texfield-email">
+          <!-- <div class="texfield-email">
             <input class="rectangle-28" type="email" id="email" name="email" placeholder="Email">
             <div class="flex-wrapper-two">
               <p class="e-mail">Email</p>
             </div>
-          </div>
+          </div> -->
           <!-- End TextField Email -->
           <!-- Start TextField New Password -->
-          <!-- <div class="texfield-pass">
+          <div class="texfield-pass">
             <input class="rectangle-28" type="password" id="new-password" name="new-password" placeholder="New Password">
             <div class="flex-wrapper-two">
               <p class="password">New Password</p>
             </div>
-          </div> -->
+          </div>
           <!-- End TextField New Password -->
           <!-- Start TextField Retype Password -->
-          <!-- <div class="texfield-pass">
+          <div class="texfield-pass">
             <input class="rectangle-28" type="password" id="retype-password" name="retype-password" placeholder="Retype Password">
             <div class="flex-wrapper-two">
               <p class="password">Retype Password</p>
             </div>
-          </div> -->
+          </div>
           <!-- End TextField Retype Password -->
           <!-- Button Submit -->
           <a href="#">
