@@ -95,17 +95,20 @@
                 <i class="fa fa-couch fa-3x"></i>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>   
-              <a href="store.html"><h3>All Categories > </h3>
+              <a href="#productSection"><h3>All Categories > </h3>
               </a>
               <div class="all-line"></div>           
             </div>
             <?php foreach ($category as $i => $data) : if($i>2)break;?>
             <div class="category-column" id="category-image">
-              <img src="/img/<?= $data['image']; ?>" alt="Image 1">
+                <a href="#productSection">
+                <img src="/img/<?= $data['image']; ?>" alt="Image 1" class="image-trigger" id="<?= $data['id']; ?>">
+                </a>
               <h4><?= $data['name']; ?></h4>
             </div>
             <?php endforeach;?>
         </div>
+    <!-- <h1 id="productSection">aaaaaaa</h1> -->
 
         <div class="container-break-line">
             <div class="break-line"></div>
@@ -124,7 +127,7 @@
                 <div class="text">
                     <p><?= $data['text_span']; ?></p>
                     <h2><?= $data['name']; ?></h2>
-                    <a href="/userRoomDesc/<?= $data['id']; ?>" class="btn">add to cart</a>
+                    <a href="#productSection" class="room-trigger btn" id="<?= $data['id']; ?>">add to cart</a>
                 </div>
               </div>
             </div>
@@ -134,40 +137,59 @@
     
     <!-- room -->
 
-    <!-- product -->
+        <!-- product -->
 
-    <section class="product" id="product">
+        <section class="product" id="product">
 
-        <h1 class="heading" id="heading">our <span> products</span></h1>
+            <h1 class="heading" id="heading">our <span> products</span></h1>
+            <br/>
 
-        <div class="box-container">
-            <?php foreach ($product as $data) : ?>
-            <form action="/cart/add" method="POST">
-                <?= csrf_field() ?>
-                <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
-                <input type="hidden" name="product_id" value="<?= $data['id']?>">
-            <div class="box">
-                <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
-                <img src="/img/<?= $data['image']?>" alt="">
-                <h3><?= $data['name'];?></h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+            <select id="categorySelect" style="background-color: #f7f7f7; border: none; border-radius: 4px; padding: 8px; font-size: 14px; color: #333; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; margin-bottom: 10px;">
+                <?php
+                    $idAll = 0;
+                    echo "<option value='{$idAll}'>All</option>";
+                    foreach ($category as $data) {
+                        echo "<option value='{$data['id']}'>{$data['name']}</option>";
+                    }
+                ?>
+            </select>
+            <select id="roomSelect" style="background-color: #f5f5f5; border: none; border-radius: 4px; padding: 8px; font-size: 14px; color: #333; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; margin-bottom: 10px;">
+                <?php
+                    $idAll = 0;
+                    echo "<option value='{$idAll}'>All</option>";
+                    foreach ($room as $data) {
+                        echo "<option value='{$data['id']}'>{$data['name']}</option>";
+                    }
+                ?>
+            </select>
+
+            <div class="box-container" id="productSection">
+                <?php foreach ($product as $data) : ?>
+                <form action="/cart/add" method="POST">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
+                    <input type="hidden" name="product_id" value="<?= $data['id']?>">
+                <div class="box">
+                    <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
+                    <img src="/img/<?= $data['image']?>" alt="">
+                    <h3><?= $data['name'];?></h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price"><?= $data['price'];?></div>
+                    <input type="submit" value="add to cart" class="btn" name="submit_btn">
                 </div>
-                <div class="price"><?= $data['price'];?></div>
-                <input type="submit" value="add to cart" class="btn" name="submit_btn">
+                </form>
+            <?php endforeach;?>
             </div>
-            </form>
-        <?php endforeach;?>
-        </div>
 
-    </section>
-    <h1 id="kolom">aaaaaaa</h1>
+        </section>
 
-    <!-- product -->
+        <!-- product -->
 
     
 
@@ -284,25 +306,99 @@
     <script src="/js/script.js"></script>
     <script src="/js/jquery-3.7.0.min.js"></script>
     <script>
-        getProductByCat();
-        function getProductByCat(){
-            $.ajax({
-                type: 'GET',
-                url: '<?php echo base_url()."userStore/cat"+"" ?>',
-                dataType: 'json',
-                contentType: 'json',
-                success: function(data){
-                    console.log(data);
-                    var productByCat="";
-                    for(var i=0;i<data.length;i++){
-                        productByCat+= data[i].id+" ";
-                        productByCat+= data[i].name+" ";
-                        productByCat+= data[i].price+" ";
-                    }
-                    $('#kolom').html(productByCat);
+        function generateProductHtml(products)
+        {
+            console.log(products);
+            var productsHtml = '';
+            if(products.length==0){
+                productsHtml = `<h3  id="heading">Sorry <span> we're out of stock</span></h3>`
+            }else{
+                for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+                productsHtml += `
+                    <div class="box">
+                    <a href="/userProductDesc/${product.id}" class="fas fa-eye"></a>
+                    <img src="/img/${product.image}" alt="">
+                    <h3>${product.name}</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">${product.price}</div>
+                    <form action="/cart/add" method="POST">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id')) ?>">
+                        <input type="hidden" name="product_id" value="${product.id}">
+                        <input type="submit" value="Add to Cart" class="btn" name="submit_btn">
+                    </form>
+                    </div>
+                `;
                 }
-            });
+            }
+            return productsHtml;
         }
+        $(document).ready(function(){
+            $('.image-trigger').click(function(){
+                var imageId = $(this).attr('id');
+                console.log(imageId);
+                $.ajax({
+                    type: 'GET',
+                    url: '<?php echo base_url()."userStore/cat/" ?>'+ imageId,
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function(products){
+                        var productsHtml = generateProductHtml(products);
+                        $('#productSection').html(productsHtml);
+                    }
+                });
+            
+            });
+            $('#categorySelect').change(function(){
+                var imageId = $('#categorySelect').val();
+                console.log(imageId);
+                    $.ajax({
+                    type: 'GET',
+                    url: '<?php echo base_url()."userStore/cat/" ?>'+ imageId,
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function(products){
+                        var productsHtml = generateProductHtml(products);
+                        $('#productSection').html(productsHtml);
+                    }
+                });
+            });
+            $('.room-trigger').click(function(){
+                var imageId = $(this).attr('id');
+                console.log(imageId);
+                $.ajax({
+                    type: 'GET',
+                    url: '<?php echo base_url()."userStore/room/" ?>'+ imageId,
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function(products){
+                        var productsHtml = generateProductHtml(products);
+                        $('#productSection').html(productsHtml);
+                    }
+                });
+            });
+            $('#roomSelect').change(function(){
+                var imageId = $('#roomSelect').val();
+                console.log(imageId);
+                    $.ajax({
+                    type: 'GET',
+                    url: '<?php echo base_url()."userStore/room/" ?>'+ imageId,
+                    dataType: 'json',
+                    contentType: 'json',
+                    success: function(products){
+                        var productsHtml = generateProductHtml(products);
+                        $('#productSection').html(productsHtml);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

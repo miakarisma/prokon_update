@@ -65,7 +65,7 @@
               <div class="texfield-email">
                 <input class="rectangle-28" type="email" id="email" name="email" placeholder="Please enter your E-mail">
                 <div class="flex-wrapper-one">
-                  <p class="full-name">e-mail</p>
+                  <p class="full-name">E-mail</p>
                 </div>
               </div>
               <!-- End textfield email -->
@@ -107,11 +107,9 @@
             </div>
 
             <!-- Start Button Signup -->
-            <a href="#">
               <button class="signup-bar" type="submit">
                 <p style="color: white;">Sign Up</p>
               </button>
-            </a>
             <!-- End Button Signup -->
           </form>
           <!-- End form -->

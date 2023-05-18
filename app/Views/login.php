@@ -64,7 +64,7 @@
             <div class="texfield-email">
                 <input class="rectangle-28" type="email" id="email" name="email" placeholder="Email">
               <div class="flex-wrapper-one">
-                <p class="e-mail">e-mail</p>
+                <p class="e-mail">E-mail</p>
               </div>
             </div>
             <!-- End TextField Email -->

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="/css/abindex.css">
+  <link rel="stylesheet" href="/css/ab-index.css">
   <title>About Us</title>
 </head>
 <body>
@@ -26,25 +26,16 @@
     <?php foreach ($aboutUs as $data) : ?>
   <div class="table-container">
     <div class="table-row">
-      <div class="table-judul">Text Span</div>
-      <textarea class="table-column" placeholder=" "><?= $data['text_span'];?></textarea>
-      <!-- <div class="table-action">
-        <button class="edit-button">Edit</button>
-      </div> -->
+      <div class="table-judul">Mini Tagline</div>
+      <div class="table-column" placeholder="Mini tagline di atas judul"><?= $data['text_span'];?></div>
     </div>
     <div class="table-row">
-      <div class="table-judul">Text Header</div>
-      <textarea class="table-column" placeholder=""><?= $data['text_header'];?></textarea>
-      <!-- <div class="table-action">
-        <button class="edit-button">Edit</button>
-      </div> -->
+      <div class="table-judul">Judul</div>
+      <div class="table-column" placeholder="Judul"><?= $data['text_header'];?></div>
     </div>
     <div class="table-row">
-      <div class="table-judul">Text Paragraph</div>
-      <textarea class="table-column" placeholder=""><?= $data['text_paragraph'];?></textarea>
-      <!-- <div class="table-action">
-        <button class="edit-button">Edit</button>
-      </div> -->
+      <div class="table-judul">Deskripsi</div>
+      <div class="table-column" placeholder="">Deskripsi<?= $data['text_paragraph'];?></div>
     </div>
   </div>
      <!-- button container -->
@@ -72,11 +63,11 @@
         </thead>
         <tbody>
 
-    <?php foreach ($ourTeam as $data) : ?>
+    <?php foreach ($ourTeam as $i => $data) : ?>
 
 
         <tr>
-            <td>1</td>
+            <td><?= $i+1;?></td>
             <td><img src="/img/<?= $data['image']?>" alt="Gambar 1"></td>
             <td><?= $data['name'];?></td>
             <td><?= $data['position'];?></td>

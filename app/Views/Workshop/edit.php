@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="../../css/fp.css">
+  <link rel="stylesheet" href="../../css/workshop-edit.css">
   <title>Front page</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
   <h1>Front page</h1>
   <?= \Config\Services::validation()->listErrors();?>
 
-    <form action="/workshop/save" method="POST" enctype="multipart/form-data">
+    <form action="/workshop/update/<?= $workshop['id'] ?>" method="POST" enctype="multipart/form-data">
     <?= csrf_field() ?>
     <input type="hidden" name="imagePrevName" value="<?= $workshop['image'] ?>">
 

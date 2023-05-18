@@ -34,14 +34,15 @@
                         </a>
                         </li>
                     <li class="nav-item"><a href="/userStore"><i class="fas fa-th"></i> Category</a></li>
-                    <li class="nav-item"><a href="/userProject"><i class="fas fa-percent"></i> Sale</a></li>
-                    <li class="nav-item">
-                        <form class="form-search" id="my-form">
-                            <input class="input-search" type="text" placeholder="Search...">
-                            <button class="btn-search" type="submit">Search</button>
-                        </form>
-                    </li>
-                    <li class="nav-item"><a href="/userContact"><i class="fas fa-shopping-cart"></i> Shopping Cart</a></li>
+                    
+                    <li class="nav-item"><a href="/cart"><i class="fas fa-shopping-cart"></i> Shopping Cart</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
                     <?php if (!session('id')) { ?>
                         <li class="nav-item"><a href="/login"><img alt="" class="vector" src="https://static.overlay-tech.com/assets/e2b1e584-eb4f-406f-b97d-5c5155a264ba.svg" /> Sign In</a></li>
                     <?php } 

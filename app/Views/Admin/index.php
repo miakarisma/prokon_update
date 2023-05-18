@@ -15,7 +15,6 @@
         <li><a href=<?=base_url('/frontPage')?>>Frontpage</a></li>
         <li><a href=<?=base_url('/aboutUs')?>>About Us</a></li>
         <li><a href=<?=base_url('/project')?>>Projects</a></li>
-        <li><a href=<?=base_url('/admin')?>>Design Interior</a></li>
         <li><a href=<?=base_url('/workshop')?>>Workshop</a></li>
         <li><a href=<?=base_url('/contactUs')?>>Contact</a></li>
         <li><a href=<?=base_url('/ecommerce')?>>eCommerce/Store</a></li>

@@ -189,7 +189,6 @@
                 <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id'))?>">
                 <input type="hidden" name="product_id" value="<?= $data['id']?>">
             <div class="box">
-                <a href="#" class="fas fa-heart"></a>
                 <a href="/userProductDesc/<?= $data['id']; ?>" class="fas fa-eye"></a>
                 <img src="/img/<?= $data['image']?>" alt="">
                 <h3><?= $data['name'];?></h3>

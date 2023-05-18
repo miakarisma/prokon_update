@@ -19,7 +19,7 @@ class UsersAuthFilter implements FilterInterface
             return redirect()->to(base_url('/login'));
         }
 
-        if (!session('role') != 1) {
+        if (session('role') != 1) {
             return redirect()->to(base_url('/'));
         }
     }

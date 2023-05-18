@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 
 class ContactUsModel extends Model{
     protected $table= 'contact_us';
-    protected $allowedFields = ['name','phone','location','website','whatsapp','instagram','facebook','email','message'];
+    protected $allowedFields = ['name','phone','location','website','whatsapp','instagram','facebook','email'];
 
     public function getAllContactUs(){
         return $this->findAll();

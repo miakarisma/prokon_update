@@ -159,7 +159,33 @@ class User extends BaseController
     }
     public function cat($id){
         $productModel = new ProductModel();
-        $data['product'] = $productModel->getProductByCat($id);
-        echo json_encode($data['product']);
+        if($id==0){
+            $data['product'] = $productModel->getAllProduct();
+        }else{
+            $data['product'] = $productModel->getProductByCat($id);
+        }
+        return $this->response->setJSON($data['product']);
+    }
+    public function room($id){
+        $productModel = new ProductModel();
+        if($id==0){
+            $data['product'] = $productModel->getAllProduct();
+        }else{
+            $data['product'] = $productModel->getProductByRoom($id);
+        }
+        return $this->response->setJSON($data['product']);
+    }
+    public function roomCat($category_id,$room_id){
+        $productModel = new ProductModel();
+        if($category_id==0 && $room_id==0){
+            $data['product'] = $productModel->getAllProduct();
+        }else if($category_id==0){
+            $data['product'] = $productModel->getProductByRoom($room_id);
+        }else if($room_id==0){
+            $data['product'] = $productModel->getProductByRoom($category_id);
+        }else{
+            $data['product'] = $productModel->getProductByRoomCat($category_id,$room_id);
+        }
+        return $this->response->setJSON($data['product']);
     }
 }

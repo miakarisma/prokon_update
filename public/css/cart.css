@@ -349,7 +349,7 @@ section{
 
 /* footer */
 
-@media (max-width: 991px){
+@media (max-width: 1000px){
 
     html{
         font-size: 55%;
@@ -371,9 +371,6 @@ section{
         width: 150px; 
         height: 100px; 
     }
-}
-
-@media (max-width : 768px){
 
     #menu-btn{
         display: inline-block;

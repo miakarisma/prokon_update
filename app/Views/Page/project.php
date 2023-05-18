@@ -74,7 +74,7 @@
                 </div>
                 <div class="content">
                     <h3><?= $data['name']; ?></h3>
-                    <p><?= $data['description']; ?></p>
+                    <p><?= substr($data['description'], 0, 150); ?> ...</p>
                     <a href="/userProjectDesc/<?= $data['id']; ?>" class="btn"> read more</a>
                     <div class="icons">
                         <a href="#"> <i class="fas fa-calendar"></i><?= $data['date']; ?></a>
