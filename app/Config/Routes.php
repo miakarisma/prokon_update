@@ -142,11 +142,13 @@ $routes->get('/userRoomDesc/(:num)', 'User::roomDesc/$1');
 $routes->get('/userProductDesc/(:num)', 'User::productDesc/$1');
 
 $routes->post('contact/orderProduct/', 'contact::orderProduct');
-$routes->post('/login/forgotPass', 'Login::forgotPass');
-$routes->get('/forgot', 'Login::forgot');
+$routes->get('/forgot/(:num)', 'Login::forgot/$1');
+$routes->post('/login/forgotPass/(:num)', 'Login::forgotPass/$1');
+// $routes->post('/login/forgotPass', 'Login::forgotPass');
+$routes->get('/resetpass', 'Login::resetpass');
 
 // routes
-$routes->match(['get', 'post'], 'email', 'SendEmail::index');
+$routes->match(['get', 'post'], 'forgotpass', 'SendEmail::index');
 
 
 /*

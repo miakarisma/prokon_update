@@ -75,57 +75,54 @@ class Login extends BaseController
             'password' => 'required|min_length[8]|max_length[20]' 
             // 'image' => 'is_image[image]|max_size[image,10240]|mime_in[image,image/png,image/jpg,image/jpeg,image/webp]',
         ];
-        if($this->request->is('post') && $this->validate($rules))
-        {
-            $email_user = $this->request->getVar('email');
-            $dataUser = $this->userModel->getUserByEmail($email_user);
-
-            // $imageFile = $this->request->getFile('image');
-            // if($imageFile->getError() == 4){
-            //     $imageName = "default.jpg";
-            // }else{
-            //     $imageName = $imageFile->getRandomName();
-            //     $imageFile->move('img', $imageName); 
-            // }           
-            if ($dataUser['email'] == $email_user) {
-                echo '<script>alert("Warning: Email yang anda masukan sudah digunakan!");</script>';
-                // echo "Email yang anda masukan sudah digunakan!";
-                return view('Page/sign-up');
-            }
-            else {
-                $this->userModel->save([
-                    'email' => $this->request->getVar('email'),
-                    'username' => $this->request->getVar('fullname'),
-                    'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                    'role' => 2,
-                    // 'gambar' => $imageName,
-                ]);
-                return redirect()->to(base_url('/login'));
+        $email_user = $this->request->getVar('email');
+        $dataUser = $this->userModel->getUserByEmail($email_user);         
+        if ($dataUser) {
+            if($this->request->is('post') && $this->validate($rules))
+            {
+                if ($dataUser['email'] == $email_user) {
+                    echo '<script>alert("Warning: Email yang anda masukan sudah digunakan!");</script>';
+                    // echo "Email yang anda masukan sudah digunakan!";
+                    return view('Page/sign-up');
+                }
             }
         }else{
+            $this->userModel->save([
+                'email' => $this->request->getVar('email'),
+                'username' => $this->request->getVar('fullname'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'role' => 2,
+                // 'gambar' => $imageName,
+            ]);
+            return redirect()->to(base_url('/login'));
             // echo "aaa";
-            return view('Page/sign-up');
+            // return view('Page/sign-up');
         }
     }
 
-    public function forgot()
+    public function resetpass()
+    {
+        return view ('page/forgotpass');
+    }
+
+    public function forgot($id)
     {
         // $email_user = $this->request->getVar('email');
         
         // $data = [
         //     'account' => $this->userModel->getUserByEmail($email_user)
         // ];
-
-        return view('page/forgotpass');
+        $data['account'] = $this->userModel->getUserById($id);
+        return view('page/resetpass', $data);
     }
 
-    public function forgotPass()
+    public function forgotPass($id)
     {
-        $email_user = $this->request->getVar('email');
+        // $email_user = $this->request->getVar('email');
         $newpass = $this->request->getVar('new-password');
         $retypepass = $this->request->getVar('retype-password');
         
-        $data = $this->userModel->getUserByEmail($email_user);
+        $data = $this->userModel->getUserById($id);
         
 
         $rules = [
