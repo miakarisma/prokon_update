@@ -146,7 +146,6 @@ a{
     line-height: normal;
     color: var(--black);
     text-align: center;
-    text-transform: uppercase;
     letter-spacing: 3.78px;
   }
 
@@ -363,6 +362,10 @@ a{
     width: 100%;
     border-radius: 0;
     position: relative;
+  }
+
+  .signup-bar{
+    padding: 22px 150px;
   }
 
   .signup {

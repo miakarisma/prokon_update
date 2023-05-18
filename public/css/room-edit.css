@@ -1,0 +1,148 @@
+/* Add some basic styling to the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+}
+
+/* Style the back button */
+.circle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #293242;
+    color: #fff;
+    text-align: center;
+}
+
+/* Style the page headings */
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: #293242;
+    font-size: 36px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #916848;
+    font-size: 24px;
+}
+
+form {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.img-label {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.img-preview {
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: auto;
+}
+
+.img-input {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: -webkit-fill-available;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: auto;
+    padding: 12px 20px;
+    background-color: #293242;
+    color: #EEEEEE;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* For screens larger than 1200px */
+@media (min-width: 1200px) {
+    form {
+        max-width: 800px;
+    }
+
+    .img-preview {
+        width: 300px;
+    }
+}
+
+/* For screens between 992px and 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    form {
+        max-width: 700px;
+    }
+
+    .img-preview {
+        width: 250px;
+    }
+}
+
+/* For screens between 768px and 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+    form {
+        max-width: 600px;
+    }
+
+    .img-preview {
+        width: 200px;
+    }
+}
+
+/* For screens smaller than 767px */
+@media (max-width: 767px) {
+    form {
+        max-width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+        box-shadow: none;
+        border-radius: 0;
+        padding-top: 60px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .img-preview {
+        width: 100%;
+    }
+}

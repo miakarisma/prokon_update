@@ -26,8 +26,6 @@
         <tr>
             <th>No</th>
             <th>Gambar</th>
-            <th>Text Header</th>
-            <th>Text Span</th>
             <th>Actions</th>
         </tr>
         </thead>

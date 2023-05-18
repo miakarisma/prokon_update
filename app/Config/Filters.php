@@ -91,6 +91,7 @@ class Filters extends BaseConfig
                 '/contactUs/*',
                 '/workshop',
                 '/workshop/*',
+                '/admin',
             ]
         ]
     ];

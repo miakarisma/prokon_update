@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="../../css/pj.css">
+  <link rel="stylesheet" href="../../css/pj-create.css">
   <title>Projects</title>
 </head>
 <body>

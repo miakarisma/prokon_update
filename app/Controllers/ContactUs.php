@@ -43,7 +43,6 @@ class ContactUs extends BaseController
             'instagram' => 'required|max_length[45]',
             'facebook' => 'required|max_length[45]',
             'email' => 'required|max_length[45]',
-            'message' => 'required',
         ];
         if($this->request->is('post') && $this->validate($rules))
         {
@@ -56,7 +55,6 @@ class ContactUs extends BaseController
                 'instagram' => $this->request->getVar('instagram'),
                 'facebook' => $this->request->getVar('facebook'),
                 'email' => $this->request->getVar('email'),
-                'message' => $this->request->getVar('message'),
             ]);
 
             return redirect()->to(base_url('/contactUs'));
@@ -92,7 +90,6 @@ class ContactUs extends BaseController
             'instagram' => 'required|max_length[45]',
             'facebook' => 'required|max_length[45]',
             'email' => 'required|max_length[45]',
-            'message' => 'required',
         ];
         if($this->request->is('post') && $this->validate($rules))
         {
@@ -106,7 +103,6 @@ class ContactUs extends BaseController
                 'instagram' => $this->request->getVar('instagram'),
                 'facebook' => $this->request->getVar('facebook'),
                 'email' => $this->request->getVar('email'),
-                'message' => $this->request->getVar('message'),
             ]);
             return redirect()->to(base_url('/contactUs'));
         }else{

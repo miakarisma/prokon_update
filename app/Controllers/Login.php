@@ -46,6 +46,7 @@ class Login extends BaseController
                     return redirect()->to(base_url('/page'));
                     // echo "success";
                 }else{
+                    // dd(session('role'));
                     return redirect()->to(base_url('/admin'));
                 }
             }

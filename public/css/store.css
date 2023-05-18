@@ -635,7 +635,7 @@ section{
 
 /* footer */
 
-@media (max-width: 991px){
+@media (max-width: 1000px){
 
     html{
         font-size: 55%;

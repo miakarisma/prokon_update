@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="/css/fp.css">
+  <link rel="stylesheet" href="/css/pj-index.css">
   <title>Projects</title>
 </head>
 <body>
@@ -33,18 +33,25 @@
         </tr>
         </thead>
         <tbody>
-    <?php foreach ($project as $data) : ?>
+    <?php foreach ($project as $i => $data) : ?>
         <tr>
-            <td>1</td>
+            <td><?=$i+1?></td>
             <td><img src="/img/<?= $data['image']?>" alt="Gambar 1"></td>
             <td><?= $data['name'];?></td>
             <td><?= $data['description'];?></td>
             <td><?= $data['date'];?></td>
             <td>
+
+           <!-- Edit and Trash Icons -->
+            <a href="/project/edit/<?= $data['id']?>">
+              <i class="fas fa-edit"></i>
+            </a> 
+            <a href="/project/delete/<?= $data['id']?>">
+              <i class="fas fa-trash-alt"></i> 
+            </a>
             
             
-        <a href="/project/edit/<?= $data['id']?>"><button class="edit-btn">Edit</button></a>
-        <a href="project/delete/<?= $data['id']?>"><button class="delete-btn">Delete</button></a>
+        
             </td>
         </tr>
     <?php endforeach;?>
@@ -54,9 +61,10 @@
     </table>
     <!-- table -->
 
-    <!-- button add -->
-    <a href="/project/create"><button class="btn-add">Add</button></a>
-    <!-- button add -->
+       <!-- button add -->
+    <div class="button-container">
+      <a href="/project/create"><button class="btn-add">Add</button></a> 
+    </div>
     </section>
 
   <script src="../../js/scripts.js"></script>

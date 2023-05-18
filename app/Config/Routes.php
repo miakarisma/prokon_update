@@ -136,6 +136,8 @@ $routes->get('/userDesign', 'User::design');
 $routes->get('/userWorkshop', 'User::workshop');
 
 $routes->get('/userStore/cat/(:num)', 'User::cat/$1');
+$routes->get('/userStore/room/(:num)', 'User::room/$1');
+$routes->get('/userStore/roomCat/(:num)/(:num)', 'User::roomCat/$1/$2');
 
 $routes->get('/userProjectDesc/(:num)', 'User::projectDesc/$1');
 $routes->get('/userRoomDesc/(:num)', 'User::roomDesc/$1');
