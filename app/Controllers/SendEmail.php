@@ -59,7 +59,7 @@ class SendEmail extends BaseController
                     <table style="margin: 30px auto;">
                         <tr>
                             <td style="border-radius: 3px; background-color: #ececec; text-align: center;" width="200">
-                                <a href="http://localhost:8080/forgot/<?= $dataUserId; ?>" style="color: black; display: inline-block; padding: 10px 20px; text-decoration: none;">Reset Password</a>
+                            <a href="http://localhost:8080/forgot/' . $dataUserId . '" style="color: black; display: inline-block; padding: 10px 20px; text-decoration: none;">Reset Password</a>
                             </td>
                         </tr>
                     </table>

@@ -182,7 +182,7 @@ class User extends BaseController
         }else if($category_id==0){
             $data['product'] = $productModel->getProductByRoom($room_id);
         }else if($room_id==0){
-            $data['product'] = $productModel->getProductByRoom($category_id);
+            $data['product'] = $productModel->getProductByCat($category_id);
         }else{
             $data['product'] = $productModel->getProductByRoomCat($category_id,$room_id);
         }

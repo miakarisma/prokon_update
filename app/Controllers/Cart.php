@@ -27,8 +27,9 @@ class Cart extends BaseController
 
     public function add()
     {
+        if($this->request->getVar('account_id') != -1){
             if($this->request->is('post'))
-            {    
+            {
                 $account_id = $this->request->getVar('account_id');
                 $product_id = $this->request->getVar('product_id');
                 $item = $this->cartModel->getItem($account_id, $product_id);
@@ -48,7 +49,9 @@ class Cart extends BaseController
             }else{
                 return view('product/create');
             }
-        
+        }else{
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function plusButton($id)
     {

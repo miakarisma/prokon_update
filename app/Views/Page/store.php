@@ -156,8 +156,8 @@
             </select>
             <select id="roomSelect" style="background-color: #f5f5f5; border: none; border-radius: 4px; padding: 8px; font-size: 14px; color: #333; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; margin-bottom: 10px;">
                 <?php
-                    $idAll = 0;
-                    echo "<option value='{$idAll}'>All</option>";
+                    $idAll2 = 0;
+                    echo "<option value='{$idAll2}'>All</option>";
                     foreach ($room as $data) {
                         echo "<option value='{$data['id']}'>{$data['name']}</option>";
                     }
