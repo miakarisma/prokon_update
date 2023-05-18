@@ -157,9 +157,9 @@ class User extends BaseController
 
         echo view('page/desc/product', $data);
     }
-    public function cat(){
+    public function cat($id){
         $productModel = new ProductModel();
-        $data['product'] = $productModel->getAllProductDesc();
+        $data['product'] = $productModel->getProductByCat($id);
         echo json_encode($data['product']);
     }
 }

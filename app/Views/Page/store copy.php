@@ -99,14 +99,13 @@
               </a>
               <div class="all-line"></div>           
             </div>
-            <?php foreach ($category as $i => $data) : if($i>3)break;?>
+            <?php foreach ($category as $i => $data) : if($i>2)break;?>
             <div class="category-column" id="category-image">
-              <img src="/img/<?= $data['image']; ?>" alt="Image 1" class="image-trigger" id="<?= $data['id']; ?>">
+              <img src="/img/<?= $data['image']; ?>" alt="Image 1">
               <h4><?= $data['name']; ?></h4>
             </div>
             <?php endforeach;?>
         </div>
-    <!-- <h1 id="kolom">aaaaaaa</h1> -->
 
         <div class="container-break-line">
             <div class="break-line"></div>
@@ -141,8 +140,7 @@
 
         <h1 class="heading" id="heading">our <span> products</span></h1>
 
-        <div class="box-container" id="kolom">
-            ho
+        <div class="box-container">
             <?php foreach ($product as $data) : ?>
             <form action="/cart/add" method="POST">
                 <?= csrf_field() ?>
@@ -167,6 +165,7 @@
         </div>
 
     </section>
+    <h1 id="kolom">aaaaaaa</h1>
 
     <!-- product -->
 
@@ -285,58 +284,25 @@
     <script src="/js/script.js"></script>
     <script src="/js/jquery-3.7.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('.image-trigger').click(function(){
-                var imageId = $(this).attr('id');
-                console.log(imageId);
-                $.ajax({
+        getProductByCat();
+        function getProductByCat(){
+            $.ajax({
                 type: 'GET',
-                url: '<?php echo base_url()."userStore/cat/" ?>'+ imageId,
+                url: '<?php echo base_url()."userStore/cat"+"" ?>',
                 dataType: 'json',
                 contentType: 'json',
-                success: function(products){
-                    console.log(products);
-                    var productsHtml = '';
-                    for (var i = 0; i < products.length; i++) {
-                    var product = products[i];
-                    productsHtml += `
-                        <div class="box">
-                        <a href="/userProductDesc/${product.id}" class="fas fa-eye"></a>
-                        <img src="/img/${product.image}" alt="">
-                        <h3>${product.name}</h3>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="price">${product.price}</div>
-                        <form action="/cart/add" method="POST">
-                            <?= csrf_field() ?>
-                            <input type="hidden" name="account_id" value="<?= (!session('id') ? -1 : session('id')) ?>">
-                            <input type="hidden" name="product_id" value="${product.id}">
-                            <input type="submit" value="Add to Cart" class="btn" name="submit_btn">
-                        </form>
-                        </div>
-                    `;
+                success: function(data){
+                    console.log(data);
+                    var productByCat="";
+                    for(var i=0;i<data.length;i++){
+                        productByCat+= data[i].id+" ";
+                        productByCat+= data[i].name+" ";
+                        productByCat+= data[i].price+" ";
                     }
-
-                    // Update the product container with the new products
-                    $('#kolom').html(productsHtml);
-
-
-                    // var productByCat="";
-                    // for(var i=0;i<data.length;i++){
-                    //     productByCat+= data[i].id+" ";
-                    //     productByCat+= data[i].name+" ";
-                    //     productByCat+= data[i].price+" ";
-                    // }
-                    // $('#kolom').html(productByCat);
+                    $('#kolom').html(productByCat);
                 }
             });
-            });
-        });
+        }
     </script>
 </body>
 </html>
